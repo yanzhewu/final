@@ -1,15 +1,15 @@
 User
-  id: integer
+  user_id: integer
   username: string
   password: string
 
 Monitor
-  id: integer
+  monitor_id: integer
   location: string
   ip_address: string
 
 Iprecord
-  id: integer
+  iprecord_id: integer
   ip_address: string
   start_time: integer
   end_time: integer
@@ -17,7 +17,7 @@ Iprecord
   location: string
 
 Website
-  id: integer
+  website_id: integer
   server: string
   rank: integer
 

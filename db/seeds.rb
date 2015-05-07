@@ -1,5 +1,7 @@
-
 User.delete_all
+Monitor.delete_all
+IPrecord.delete_all
+Website.delete_all
 
 User.create  id: 1,
              username: 'yanzhewu',
@@ -13,35 +15,35 @@ User.create  id: 3,
              username: 'lingduokong',
              password: 'lingduokong'
 
-Monitor.delete_all
 
-Monitor.create id: 1,
-               location: 'YanHome',
-               ip_address: '73.8.137.233'
 
-Monitor.create id: 3,
-               location: 'ec2',
-               ip_address: '52.10.113.135'
+Monitor.create  id: 1,
+                location: 'YanHome',
+                ip_address: '73.8.137.233'
 
-Monitor.create id: 4,
-               location: 'Uchicago',
-               ip_address:  '128.135.164.171'
+Monitor.create  id: 3,
+                location: 'ec2',
+                ip_address: '52.10.113.135'
 
-IPrecord.delete_all
+Monitor.create  id: 4,
+                location: 'Uchicago',
+                ip_address:  '128.135.164.171'
 
-IPrecord.create id: 1,
-                ip_address: '64.94.140.201',
-                start_time: 1425069955037,
-                end_time: 1425069957147,
-                server: 'dsply.com',
-                location: 'YanHome'
 
-IPrecord.create id: 2,
-                ip_address: '217.199.217.120',
-                start_time: 1425069955187,
-                end_time: 1425069955187,
-                server: 'ucoz.ru',
-                location: 'YanHome'
+
+IPrecord.create  id: 1,
+                 ip_address: '64.94.140.201',
+                 start_time: 1425069955037,
+                 end_time: 1425069957147,
+                 server: 'dsply.com',
+                 location: 'YanHome'
+
+IPrecord.create  id: 2,
+                 ip_address: '217.199.217.120',
+                 start_time: 1425069955187,
+                 end_time: 1425069955187,
+                 server: 'ucoz.ru',
+                 location: 'YanHome'
 
 IPrecord.create id: 52035,
                 ip_address: '216.58.216.163',
@@ -64,7 +66,7 @@ IPrecord.create id: 52045,
                 server: 'java.com',
                 location: 'Uchicago'
 
-Website.delete_all
+
 
 Website.create id: 2,
                server: 'youtube.com',

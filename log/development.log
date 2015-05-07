@@ -2188,3 +2188,134 @@ Processing by WebsitesController#index as HTML
   [1m[35mWebsite Load (0.1ms)[0m  SELECT "websites".* FROM "websites"
   Rendered websites/index.html.erb within layouts/application (1.1ms)
 Completed 200 OK in 28ms (Views: 27.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for ::1 at 2015-05-07 13:03:23 -0500
+Processing by WebsitesController#index as HTML
+  [1m[36mWebsite Load (0.2ms)[0m  [1mSELECT "websites".* FROM "websites"[0m
+  Rendered websites/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 31ms (Views: 29.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/websites/new" for ::1 at 2015-05-07 13:03:24 -0500
+Processing by WebsitesController#new as HTML
+  Parameters: {"authenticity_token"=>"Hzc9013ag7I/s9AryxLLV+E7PzutMI6ubB1EXShEnIxg6f/Ma+TrcLsoLND8YfPJQcwLSngiwScRTECIRUy6hQ=="}
+  Rendered websites/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 30ms (Views: 29.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-05-07 13:06:06 -0500
+Processing by WebsitesController#index as HTML
+  [1m[36mWebsite Load (1.6ms)[0m  [1mSELECT "websites".* FROM "websites"[0m
+  Rendered websites/index.html.erb within layouts/application (23.2ms)
+Completed 200 OK in 299ms (Views: 261.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for ::1 at 2015-05-07 13:06:07 -0500
+Processing by WebsitesController#index as HTML
+  [1m[35mWebsite Load (0.2ms)[0m  SELECT "websites".* FROM "websites"
+  Rendered websites/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 26ms (Views: 24.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/websites/new" for ::1 at 2015-05-07 13:06:09 -0500
+Processing by WebsitesController#new as HTML
+  Parameters: {"authenticity_token"=>"RbplsPvRQIPvVRgylKP7H6wRCbCGkn0XBT0tblajmkDTaUibpMbbNwrC6gs9JHly3wuNuL9sAJK3yzXnVjTEbw=="}
+  Rendered websites/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 28ms (Views: 27.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/websites/new" for ::1 at 2015-05-07 13:06:15 -0500
+Processing by WebsitesController#new as HTML
+  Parameters: {"authenticity_token"=>"RbplsPvRQIPvVRgylKP7H6wRCbCGkn0XBT0tblajmkDTaUibpMbbNwrC6gs9JHly3wuNuL9sAJK3yzXnVjTEbw=="}
+  Rendered websites/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 28ms (Views: 27.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/websites" for ::1 at 2015-05-07 13:06:21 -0500
+Processing by WebsitesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WGDZOK6KKPag4HRl8mRAfDj3VW0iFCJ9SgDCiPQLzUHOs/QT8Z2zQkV3hlxb48IRS+3RZRvqX/j49toB9JyTbg==", "server"=>"google.com", "rank"=>"1"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "websites" ("server", "rank") VALUES (?, ?)  [["server", "google.com"], ["rank", 1]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 11ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2015-05-07 13:06:21 -0500
+Processing by WebsitesController#index as HTML
+  [1m[35mWebsite Load (0.2ms)[0m  SELECT "websites".* FROM "websites"
+  Rendered websites/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 29ms (Views: 28.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/websites/10" for ::1 at 2015-05-07 13:06:25 -0500
+Processing by WebsitesController#show as HTML
+  Parameters: {"authenticity_token"=>"8Dzos708q8mx1KTtBk4KaYTZy1jsxCYKavykpz7h18lm78WY4iswfVRDVtSvyYgE98NPUNU6W4/YCrwuPnaJ5g==", "id"=>"10"}
+  [1m[36mWebsite Load (0.2ms)[0m  [1mSELECT  "websites".* FROM "websites" WHERE "websites"."id" = ? LIMIT 1[0m  [["id", 10]]
+  Rendered websites/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 34ms (Views: 25.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-05-07 13:06:28 -0500
+Processing by WebsitesController#index as HTML
+  [1m[35mWebsite Load (0.1ms)[0m  SELECT "websites".* FROM "websites"
+  Rendered websites/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 46ms (Views: 45.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/websites/10" for ::1 at 2015-05-07 13:06:30 -0500
+Processing by WebsitesController#show as HTML
+  Parameters: {"authenticity_token"=>"tzjsGXA0/wtLWRtxPQn7HW5TwDS66eHgXg8LKwPIdXIh68EyLyNkv67O6UiUjnlwHUlEPIMXnGXs+ROiA18rXQ==", "id"=>"10"}
+  [1m[36mWebsite Load (0.1ms)[0m  [1mSELECT  "websites".* FROM "websites" WHERE "websites"."id" = ? LIMIT 1[0m  [["id", 10]]
+  Rendered websites/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 36ms (Views: 34.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/websites/10/edit" for ::1 at 2015-05-07 13:06:31 -0500
+Processing by WebsitesController#edit as HTML
+  Parameters: {"authenticity_token"=>"6iZTL+Hd9TXGLUHxVaTObMddR6798+ucvt9aAOH6X1p89X4EvspugSO6s8j8I0wBtEfDpsQNlhkMKUKJ4W0BdQ==", "id"=>"10"}
+  [1m[35mWebsite Load (0.1ms)[0m  SELECT  "websites".* FROM "websites" WHERE "websites"."id" = ? LIMIT 1  [["id", 10]]
+  Rendered websites/edit.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 28ms (Views: 26.9ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/websites/10" for ::1 at 2015-05-07 13:06:33 -0500
+Processing by WebsitesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"suuwSRxZNCvcTVIV8LzXXisnXJy0exJmWz6fWfncV+gkOJ1iQ06vnznaoCxZO1UzWD3YlI2Fb+PpyIfQ+UsJxw==", "server"=>"google.com", "rank"=>"2", "id"=>"10"}
+  [1m[36mWebsite Load (0.2ms)[0m  [1mSELECT  "websites".* FROM "websites" WHERE "websites"."id" = ? LIMIT 1[0m  [["id", 10]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "websites" SET "rank" = ? WHERE "websites"."id" = ?[0m  [["rank", 2], ["id", 10]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/websites/10
+Completed 302 Found in 7ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/websites/10" for ::1 at 2015-05-07 13:06:33 -0500
+Processing by WebsitesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mWebsite Load (0.1ms)[0m  [1mSELECT  "websites".* FROM "websites" WHERE "websites"."id" = ? LIMIT 1[0m  [["id", 10]]
+  Rendered websites/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 32ms (Views: 31.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for ::1 at 2015-05-07 13:06:34 -0500
+Processing by WebsitesController#index as HTML
+  [1m[35mWebsite Load (0.2ms)[0m  SELECT "websites".* FROM "websites"
+  Rendered websites/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 48ms (Views: 47.3ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/websites/10" for ::1 at 2015-05-07 13:06:36 -0500
+Processing by WebsitesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"vJ4GOw7HCzUIS7L9ztQtFVjgDY8n4wXwXaf2SejWHw8qTSsQUdCQge3cQMRnU694K/qJhx4deHXvUe7A6EFBIA==", "id"=>"10"}
+  [1m[36mSQL (1.8ms)[0m  [1mDELETE FROM "websites" WHERE "websites"."id" = ?[0m  [["id", 10]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/" for ::1 at 2015-05-07 13:06:36 -0500
+Processing by WebsitesController#index as HTML
+  [1m[35mWebsite Load (0.2ms)[0m  SELECT "websites".* FROM "websites"
+  Rendered websites/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 36ms (Views: 35.6ms | ActiveRecord: 0.2ms)

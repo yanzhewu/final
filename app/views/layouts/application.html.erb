@@ -2,13 +2,26 @@
 <html>
 <head>
   <title>Final</title>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+  <div class="container">
+
+    <h1 style="border-bottom: solid 3px gray;"><%= link_to "Internet Archive for DNS", "/" %></h1>
+
+    <% if notice.present? %>
+      <div class="alert alert-info"%>
+        <%= notice %>
+      </div>
+    <% end %>
+
+    <%= yield %>
+
+  </div>
 
 </body>
 </html>

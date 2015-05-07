@@ -1,0 +1,14 @@
+
+<p><%= link_to "Add a New Website", new_website_path, :method => 'get' %></p>
+
+<ul>
+
+  <% @websites.each do |website| %>
+    <li>
+      <%= link_to website.server, website_path(website.id), :method => 'get' %>
+
+      <%= link_to "(delete)", website_path(website.id), :method => 'delete' %>
+    </li>
+  <% end %>
+
+</ul>

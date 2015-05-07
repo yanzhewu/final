@@ -1,0 +1,11 @@
+<h2>Edit a Website</h2>
+
+<%= form_tag website_path(@website.id), :method => 'patch' do %>
+
+  <p><label>server:</label> 
+  <input name="server" size="30" value="<%= @website.server%>"></p>
+  <p><label>rank:</label> 
+  <input name="rank" size="30" value="<%= @website.rank%>"></p>
+  <p><button>Submit</button></p>
+
+<% end%>

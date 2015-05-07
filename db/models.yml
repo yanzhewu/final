@@ -11,8 +11,8 @@ Monitor
 Iprecord
   iprecord_id: integer
   ip_address: string
-  start_time: integer
-  end_time: integer
+  start_time: string
+  end_time: string
   server: string
   location: string
 

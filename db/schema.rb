@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "iprecords", force: :cascade do |t|
     t.integer "iprecord_id"
     t.string  "ip_address"
-    t.integer "start_time"
-    t.integer "end_time"
+    t.string  "start_time"
+    t.string  "end_time"
     t.string  "server"
     t.string  "location"
   end

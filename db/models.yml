@@ -1,37 +1,35 @@
-# User
-#   username: string
-#   password: string
-
-# # Monitor
-#   location: string
-#   ip_address: string
-
-# Iprecord
-#   ip_address: string
-#   start_time: integer
-#   end_time: integer
-#   server: string
-#   location: string
-
-# Website
-#   server: string
-#   rank: integer
-
 User
   username: string
   password: string
+  email: string
+  image: string
+  message_number: integer
 
-Iprecord
-  ip_address: string
-  start_time: string
-  end_time: string
-  server: string
-  location: string
+Tweet
+  content: string
+  image: string
+  date: integer
+  user_id: integer
 
-Website
-  server: string
-  rank: integer
+Message
+  content: string
+  date: integer
+  sender_id: integer
+  receiver_id: integer
+  is_read: boolean
 
-Client
-  location: string
-  ip_address: string
+Follow
+  fan_id: integer
+  star_id: integer
+
+Comment
+  content: string
+  date: integer
+  tweet_id: integer
+  user_id: integer
+
+Like
+  tweet_id: integer
+  user_id: integer
+
+

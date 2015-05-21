@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+
+.protrait{
+	width:40px;
+	height:40px;
+  border-radius: 25px;
+}
+
+.post-tweet{
+	width: 100%;
+	border: 2px solid;
+  border-radius: 10px;
+  resize: none;
+}
+
+.tweet-image{
+	width:100px;
+	height:100px;
+	margin-top: 20px
+}

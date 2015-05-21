@@ -11,81 +11,79 @@ User.delete_all
 
 User.create  id: 1,
              username: 'yanzhewu',
-             password: 'yanzhewu'
+             password: 'yanzhewu',
+             email: 'yanzhewu@uchicago.edu',
+             image: 'http://tp3.sinaimg.cn/1442054902/50/40002770510/1'
 
 User.create  id: 2,
              username: 'haozhou',
-             password: 'haozhou'
+             password: 'haozhou',
+             email: 'haozhou@uchicago.edu',
+             image: 'http://tp4.sinaimg.cn/1438513755/180/40008758792/1'
              
 User.create  id: 3,
              username: 'lingduokong',
-             password: 'lingduokong'
+             password: 'lingduokong',
+             email: 'lingduokong@uchicago.edu',
+             image: 'http://tp2.sinaimg.cn/1666978981/50/5723425429/0'
 
-Client.delete_all
 
-Client.create id: 1,
-               location: 'YanHome',
-               ip_address: '73.8.137.233'
+Tweet.delete_all
 
-Client.create id: 3,
-               location: 'ec2',
-               ip_address: '52.10.113.135'
+Tweet.create  id: 1,
+              content: 'Lous challenge anyone???????',
+              date: 1425069955,
+              user_id: "1"
 
-Client.create id: 4,
-               location: 'Uchicago',
-               ip_address:  '128.135.164.171'
+Tweet.create  id: 2,
+              content: 'An entire team of Apple developers was there 24/7 to help, so that was a wonderful resource to learn Swift and Objective C in a weekend.',
+              date: 1425069957,
+              user_id: "2"  
 
-Iprecord.delete_all
 
-Iprecord.create id: 1,
-                ip_address: '64.94.140.201',
-                start_time: '1425069955037',
-                end_time: '1425069957147',
-                server: 'dsply.com',
-                location: 'YanHome'
+Tweet.create  id: 3,
+              content: 'CSIL is once again selling discounted used computers and monitors for university students and staff! Models for sale are MacPro(2010), Shuttle, and 24" Apple LED Cinema Display. First come, first serve.',
+              date: 1425069955,
+              user_id: "3"  
 
-Iprecord.create id: 2,
-                ip_address: '217.199.217.120',
-                start_time: '1425069955187',
-                end_time: '1425069955187',
-                server: 'ucoz.ru',
-                location: 'YanHome'
+Tweet.create  id: 4,
+              content: 'Went to an alum potluck, being the only student showing up with four alums around, which is pretty cool and actually the best alum event so far!',
+              date: 1425069955,
+              user_id: "1"    
 
-Iprecord.create id: 3,
-                ip_address: '216.58.216.163',
-                start_time: '1425963490342',
-                end_time: '1425963490342',
-                server: 'google.ae',
-                location: 'ec2'
+Tweet.create  id: 5,
+              content: 'Wish I could graduate again ‪#‎BadgerMemory‬',
+              date: 1425963490,
+              user_id: "2"                           
 
-Iprecord.create id: 4,
-                ip_address: '64.233.185.106',
-                start_time: '1425963633788',
-                end_time: '1425963633788',
-                server: 'googleapis.com',
-                location: 'Uchicago'
 
-Iprecord.create id: 5,
-                ip_address: '23.194.72.200',
-                start_time: '1425963633788',
-                end_time: '1425963633788',
-                server: 'java.com',
-                location: 'Uchicago'
+Comment.delete_all
 
-Website.delete_all
+Comment.create  id: 1,
+                content: 'You cant like your own post...',
+                date: 1431983183,
+                tweet_id: 1,
+                user_id: 1
 
-Website.create id: 1,
-               server: 'youtube.com',
-               rank: 2
+Comment.create  id: 2,
+                content: 'I must have been a little drunk',
+                date: 1431983197,
+                tweet_id: 1,
+                user_id: 2
 
-Website.create id: 2,
-               server: 'yahoo.com',
-               rank: 2
 
-Website.create id: 3,
-               server: 'baidu.com',
-               rank: 2
+Comment.create  id: 3,
+                content: 'That was at hydrate',
+                date: 1431983352,
+                tweet_id: 1,
+                user_id: 3
 
+
+Comment.create  id: 4,
+                content: 'I heard you bumped into Alex in Chicago lol, the world is too small!',
+                date: 1431983363,
+                tweet_id: 1,
+                user_id: 3
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).

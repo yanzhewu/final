@@ -1,6 +1,9 @@
 Final Project 
 
 public url: 52.8.114.250:3000
+Login :   Email:    yanzhewu@uchicago.edu
+          Password: yanzhewu
+       or Sign up with your own preferences
 
 Here are the minimum requirements with points indicated.
 26 points total 

@@ -1,5 +1,7 @@
 Final Project 
 
+public url: 52.8.114.250:3000
+
 Here are the minimum requirements with points indicated.
 26 points total 
  

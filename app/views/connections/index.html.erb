@@ -1,0 +1,49 @@
+<div class="col-xs-1">
+	
+</div>
+
+<div class="col-xs-8">
+	<% @user.connections.each do |connection| %>
+	<a href="/connections/<%=connection.id%>/messages">
+		<div class="jumbotron">
+			<div class="row">
+				<% if session["user_id"] == connection.user_one_id %>
+
+				<div class="col-xs-1">
+					<%= image_tag(User.find_by(id: connection.user_two_id).image, class: "protrait") %>
+				</div>
+				<div class="col-xs-8">
+					<%= User.find_by(id: connection.user_two_id).username %>
+					<div class="pull-right">
+						<small><%= Time.at(connection.date) %></small>
+					</div>
+					<hr class="dividing_line">
+					<%= connection.last_message %>
+				</div>
+
+				<% else %>
+
+				<div class="col-xs-1">
+					<%= image_tag(User.find_by(id: connection.user_one_id).image, class: "protrait") %>
+				</div>
+				<div class="col-xs-8">
+					<%= User.find_by(id: connection.user_one_id).username %>
+					<div class="pull-right">
+						<small><%= Time.at(connection.date) %></small>
+					</div>
+					<hr class="dividing_line">
+					<%= connection.last_message %>
+				</div>
+
+				<% end %>
+
+
+			</div>
+		</div>
+	</a>
+	<% end %>
+</div>
+
+<div class="col-xs-2">
+
+</div>

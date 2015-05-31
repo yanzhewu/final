@@ -1,0 +1,55 @@
+<div class="jumbotron">
+	<% @messages.each do |message| %>
+	<div class="row">
+		<% if message.sender_id == session["user_id"] %>
+		<div class="col-xs-2">
+		</div>
+		<div class="col-xs-8">
+			<div class="triangle-border right">
+				<%= message.content %>
+			</div>
+		</div>
+		<div class="col-xs-2">
+			<div class="pull-right">
+				<%= image_tag(session["user_image"], class: "protrait")%>
+				<br><br>
+				<%= session["username"] %>
+			</div>
+		</div>
+		<br>
+		<% else %>
+		<div class="col-xs-2">
+			<%= image_tag(User.find_by_id(message.sender_id).image, class: "protrait")%>
+			<br><br>
+			<%= User.find_by_id(message.sender_id).username %>
+		</div>
+		<div class="col-xs-8">
+			<div class="triangle-border left">
+				<%= message.content %>
+			</div>
+		</div>
+		<div class="col-xs-2">
+		</div>
+		<% end %>
+	</div>
+	<% end %>
+</div>
+
+<nav class="navbar navbar-inverse navbar-fixed-bottom">
+	<div class="col-xs-2">	
+	</div>
+	<div class="col-xs-8">
+		<%= form_tag connection_messages_path(@connection.id), method:"post", class: "navbar-form" do %>
+		<div class="input-group">
+			<input type="text" class="form-control" name="message" size="100">
+			<div class="input-group-btn">
+				<button class="btn btn-success" type="submit">REPLY</button>
+			</div>
+		</div>
+	</div>
+	<% end %>
+</nav>
+
+<script>
+	window.scrollTo(0,document.body.scrollHeight);
+</script>

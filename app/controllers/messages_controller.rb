@@ -6,6 +6,13 @@ class MessagesController < ApplicationController
 		@connector_id =  @connection.user_one_id == session["user_id"]? @connection.user_two_id : @connection.user_one_id
 	end
 
+	before_action :find_user
+	def find_user
+		if (!session["user_id"].present?)
+			redirect_to login_path
+		end
+	end
+
 	def index
 		@user = User.find_by_id(session["user_id"])
 		@messages = @connection.messages.limit(100).order("date")

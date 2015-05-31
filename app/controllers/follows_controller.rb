@@ -5,6 +5,9 @@ class FollowsController < ApplicationController
 	before_action :find_user
 	def find_user
 		@user = User.find_by_id(params["user_id"])
+		if (!session["user_id"].present?)
+			redirect_to login_path
+		end
 	end
 
 	def index
@@ -20,6 +23,7 @@ class FollowsController < ApplicationController
 		follow.fan_id = session["user_id"]
 		if follow.save
 			respond_to do |format|
+				format.html
 				format.js {render "new"}
 			end
 		end

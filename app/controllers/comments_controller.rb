@@ -1,5 +1,12 @@
 class CommentsController < ApplicationController
 
+	before_action :find_user
+	def find_user
+		if (!session["user_id"].present?)
+			redirect_to login_path
+		end
+	end
+
 	def new
 		@tweet_id  = params["tweet_id"]
 	end
@@ -12,7 +19,6 @@ class CommentsController < ApplicationController
 		@comment.user_id = session["user_id"]
 		if @comment.save
 			respond_to do |format|
-				# format.html { redirect_to tweet_path(params[:tweet_id])}
 				format.js 
 			end
 		end

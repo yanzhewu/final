@@ -52065,8 +52065,885 @@ Processing by MessagesController#index as HTML
   Rendered messages/index.html.erb within layouts/application (1.3ms)
   [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
 Completed 200 OK in 35ms (Views: 33.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/logout" for ::1 at 2015-05-31 15:22:44 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-05-31 15:22:44 -0500
+Processing by TweetsController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:22:44 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 26ms (Views: 25.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users?utf8=%E2%9C%93&keyword=" for ::1 at 2015-05-31 15:22:45 -0500
+Processing by UsersController#index as HTML
+  Parameters: {"utf8"=>"✓", "keyword"=>""}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mFollow Load (0.2ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."fan_id" = ? AND "follows"."star_id" IS NULL LIMIT 1  [["fan_id", 1]]
+  [1m[36mFollow Load (0.2ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" IS NULL LIMIT 1[0m  [["star_id", 1]]
+  [1m[35mConnection Load (0.6ms)[0m  SELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" IS NULL LIMIT 1  [["user_one_id", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1mSELECT  "connections".* FROM "connections" WHERE "connections"."user_two_id" = ? AND "connections"."user_one_id" IS NULL LIMIT 1[0m  [["user_two_id", 1]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "connections" ("user_one_id", "date") VALUES (?, ?)[0m  [["user_one_id", 1], ["date", 1433103765]]
+  [1m[35m (8.8ms)[0m  commit transaction
+  [1m[36mFollow Load (0.1ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."fan_id" = ? AND "follows"."star_id" IS NULL LIMIT 1[0m  [["fan_id", 2]]
+  [1m[35mFollow Load (0.1ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" IS NULL LIMIT 1  [["star_id", 2]]
+  [1m[36mConnection Load (0.1ms)[0m  [1mSELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" IS NULL LIMIT 1[0m  [["user_one_id", 2]]
+  [1m[35mConnection Load (0.1ms)[0m  SELECT  "connections".* FROM "connections" WHERE "connections"."user_two_id" = ? AND "connections"."user_one_id" IS NULL LIMIT 1  [["user_two_id", 2]]
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.5ms)[0m  CREATE TEMPORARY TABLE "amessages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar, "date" integer, "is_read" boolean DEFAULT 'f', "sender_id" integer, "receiver_id" integer, "connection_id" integer) 
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "connections" ("user_one_id", "date") VALUES (?, ?)  [["user_one_id", 2], ["date", 1433103765]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mFollow Load (0.1ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."fan_id" = ? AND "follows"."star_id" IS NULL LIMIT 1  [["fan_id", 3]]
+  [1m[36mFollow Load (0.1ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" IS NULL LIMIT 1[0m  [["star_id", 3]]
+  [1m[35mConnection Load (0.1ms)[0m  SELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" IS NULL LIMIT 1  [["user_one_id", 3]]
+  [1m[36mConnection Load (0.1ms)[0m  [1mSELECT  "connections".* FROM "connections" WHERE "connections"."user_two_id" = ? AND "connections"."user_one_id" IS NULL LIMIT 1[0m  [["user_two_id", 3]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "connections" ("user_one_id", "date") VALUES (?, ?)[0m  [["user_one_id", 3], ["date", 1433103765]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36mFollow Load (0.1ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."fan_id" = ? AND "follows"."star_id" IS NULL LIMIT 1[0m  [["fan_id", 4]]
+  [1m[35mFollow Load (0.1ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" IS NULL LIMIT 1  [["star_id", 4]]
+  [1m[36mConnection Load (0.1ms)[0m  [1mSELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" IS NULL LIMIT 1[0m  [["user_one_id", 4]]
+  [1m[35mConnection Load (0.1ms)[0m  SELECT  "connections".* FROM "connections" WHERE "connections"."user_two_id" = ? AND "connections"."user_one_id" IS NULL LIMIT 1  [["user_two_id", 4]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "connections" ("user_one_id", "date") VALUES (?, ?)  [["user_one_id", 4], ["date", 1433103765]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mFollow Load (0.1ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."fan_id" = ? AND "follows"."star_id" IS NULL LIMIT 1  [["fan_id", 5]]
+  [1m[36mFollow Load (0.1ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" IS NULL LIMIT 1[0m  [["star_id", 5]]
+  [1m[35mConnection Load (0.1ms)[0m  SELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" IS NULL LIMIT 1  [["user_one_id", 5]]
+  [1m[36mConnection Load (0.1ms)[0m  [1mSELECT  "connections".* FROM "connections" WHERE "connections"."user_two_id" = ? AND "connections"."user_one_id" IS NULL LIMIT 1[0m  [["user_two_id", 5]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "connections" ("user_one_id", "date") VALUES (?, ?)[0m  [["user_one_id", 5], ["date", 1433103765]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36mFollow Load (0.1ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."fan_id" = ? AND "follows"."star_id" IS NULL LIMIT 1[0m  [["fan_id", 6]]
+  [1m[35mFollow Load (0.1ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" IS NULL LIMIT 1  [["star_id", 6]]
+  [1m[36mConnection Load (0.1ms)[0m  [1mSELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" IS NULL LIMIT 1[0m  [["user_one_id", 6]]
+  [1m[35mConnection Load (0.1ms)[0m  SELECT  "connections".* FROM "connections" WHERE "connections"."user_two_id" = ? AND "connections"."user_one_id" IS NULL LIMIT 1  [["user_two_id", 6]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "connections" ("user_one_id", "date") VALUES (?, ?)  [["user_one_id", 6], ["date", 1433103765]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  Rendered users/index.html.erb within layouts/application (69.7ms)
+Completed 200 OK in 132ms (Views: 100.5ms | ActiveRecord: 20.3ms)
+
+
+Started POST "/users/1/follows" for ::1 at 2015-05-31 15:22:48 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:22:48 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 39ms (Views: 38.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/2/follows" for ::1 at 2015-05-31 15:22:50 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:22:50 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 35ms (Views: 34.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/3/follows" for ::1 at 2015-05-31 15:22:51 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:22:51 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 44ms (Views: 43.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/4/follows" for ::1 at 2015-05-31 15:22:52 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:22:52 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 36ms (Views: 35.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/connections/11/messages" for ::1 at 2015-05-31 15:22:53 -0500
+Processing by MessagesController#index as HTML
+  Parameters: {"authenticity_token"=>"coZZ+WMjH57d/W4XK6QlYkzqf9y5e7EIgjBchmZQsqN9p9X1gJyySNR+LLBS39lvvPiQkWrg9fKY3K6wgZP85A==", "connection_id"=>"11"}
+  [1m[35mConnection Load (0.6ms)[0m  SELECT  "connections".* FROM "connections" WHERE "connections"."id" = ? LIMIT 1  [["id", 11]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:22:53 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 29ms (Views: 27.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/connections/10/messages" for ::1 at 2015-05-31 15:22:56 -0500
+Processing by MessagesController#index as HTML
+  Parameters: {"authenticity_token"=>"coZZ+WMjH57d/W4XK6QlYkzqf9y5e7EIgjBchmZQsqN9p9X1gJyySNR+LLBS39lvvPiQkWrg9fKY3K6wgZP85A==", "connection_id"=>"10"}
+  [1m[36mConnection Load (0.1ms)[0m  [1mSELECT  "connections".* FROM "connections" WHERE "connections"."id" = ? LIMIT 1[0m  [["id", 10]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:22:56 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 37ms (Views: 36.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/1/follows" for ::1 at 2015-05-31 15:22:59 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:22:59 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 39ms (Views: 37.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/2/follows" for ::1 at 2015-05-31 15:23:00 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:23:00 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 37ms (Views: 36.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/3/follows" for ::1 at 2015-05-31 15:23:00 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:23:00 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 33ms (Views: 32.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/4/follows" for ::1 at 2015-05-31 15:23:01 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:23:01 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 39ms (Views: 38.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/5/follows" for ::1 at 2015-05-31 15:23:02 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"5"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:23:02 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 32ms (Views: 31.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/6/follows" for ::1 at 2015-05-31 15:23:03 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"6"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:23:03 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 38ms (Views: 37.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/5/follows" for ::1 at 2015-05-31 15:23:04 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:23:04 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 35ms (Views: 34.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/4/follows" for ::1 at 2015-05-31 15:23:04 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:23:04 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 35ms (Views: 34.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/1/follows" for ::1 at 2015-05-31 15:23:07 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:23:07 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 40ms (Views: 39.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/2/follows" for ::1 at 2015-05-31 15:23:08 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:23:08 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 30ms (Views: 29.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/3/follows" for ::1 at 2015-05-31 15:23:09 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:23:09 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 37ms (Views: 36.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/4/follows" for ::1 at 2015-05-31 15:23:10 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:23:10 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 39ms (Views: 37.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/5/follows" for ::1 at 2015-05-31 15:23:11 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:23:11 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 32ms (Views: 32.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/6/follows" for ::1 at 2015-05-31 15:23:12 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"6"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:23:12 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 33ms (Views: 32.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/4/follows" for ::1 at 2015-05-31 15:23:13 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"4"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:23:13 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 36ms (Views: 35.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/5/follows" for ::1 at 2015-05-31 15:23:14 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:23:14 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 34ms (Views: 32.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users?utf8=%E2%9C%93&keyword=" for ::1 at 2015-05-31 15:24:05 -0500
+Processing by UsersController#index as HTML
+  Parameters: {"utf8"=>"✓", "keyword"=>""}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mFollow Load (0.1ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."fan_id" = ? AND "follows"."star_id" IS NULL LIMIT 1[0m  [["fan_id", 1]]
+  [1m[35mFollow Load (0.1ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" IS NULL LIMIT 1  [["star_id", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1mSELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" IS NULL LIMIT 1[0m  [["user_one_id", 1]]
+  [1m[35mFollow Load (0.2ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."fan_id" = ? AND "follows"."star_id" IS NULL LIMIT 1  [["fan_id", 2]]
+  [1m[36mFollow Load (0.3ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" IS NULL LIMIT 1[0m  [["star_id", 2]]
+  [1m[35mConnection Load (0.1ms)[0m  SELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" IS NULL LIMIT 1  [["user_one_id", 2]]
+  [1m[36mFollow Load (0.1ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."fan_id" = ? AND "follows"."star_id" IS NULL LIMIT 1[0m  [["fan_id", 3]]
+  [1m[35mFollow Load (0.1ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" IS NULL LIMIT 1  [["star_id", 3]]
+  [1m[36mConnection Load (0.1ms)[0m  [1mSELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" IS NULL LIMIT 1[0m  [["user_one_id", 3]]
+  [1m[35mFollow Load (0.2ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."fan_id" = ? AND "follows"."star_id" IS NULL LIMIT 1  [["fan_id", 4]]
+  [1m[36mFollow Load (0.2ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" IS NULL LIMIT 1[0m  [["star_id", 4]]
+  [1m[35mConnection Load (0.2ms)[0m  SELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" IS NULL LIMIT 1  [["user_one_id", 4]]
+  [1m[36mFollow Load (0.1ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."fan_id" = ? AND "follows"."star_id" IS NULL LIMIT 1[0m  [["fan_id", 5]]
+  [1m[35mFollow Load (0.1ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" IS NULL LIMIT 1  [["star_id", 5]]
+  [1m[36mConnection Load (0.1ms)[0m  [1mSELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" IS NULL LIMIT 1[0m  [["user_one_id", 5]]
+  [1m[35mFollow Load (0.1ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."fan_id" = ? AND "follows"."star_id" IS NULL LIMIT 1  [["fan_id", 6]]
+  [1m[36mFollow Load (0.1ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" IS NULL LIMIT 1[0m  [["star_id", 6]]
+  [1m[35mConnection Load (0.1ms)[0m  SELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" IS NULL LIMIT 1  [["user_one_id", 6]]
+  Rendered users/index.html.erb within layouts/application (19.2ms)
+Completed 200 OK in 49ms (Views: 46.3ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/" for ::1 at 2015-05-31 15:24:14 -0500
+Processing by TweetsController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:24:14 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 27ms (Views: 26.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-05-31 15:24:18 -0500
+Processing by TweetsController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:24:18 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 34ms (Views: 33.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2015-05-31 15:24:19 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"V2x+XdhfOM5dxiMB61YQGcGaHNJyK8wPcA5HQNqtYWBYTfJRO+CVGFRFYaaSLewUMYjzn6GwiPVq4rV2PW4vJw==", "email"=>"lingduokong@uchicago.edu", "password"=>"[FILTERED]", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "lingduokong@uchicago.edu"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 75ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-05-31 15:24:19 -0500
+Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.2ms)[0m  SELECT  "tweets".* FROM "tweets"  ORDER BY date desc LIMIT 5 OFFSET 0
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tweets"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mComment Load (0.7ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc  [["tweet_id", 11]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc[0m  [["tweet_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc  [["tweet_id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc[0m  [["tweet_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc  [["tweet_id", 7]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "follows" WHERE "follows"."fan_id" = ?[0m  [["fan_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "follows" WHERE "follows"."fan_id" = ?  [["fan_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  Rendered tweets/index.html.erb within layouts/application (23.2ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+Completed 200 OK in 59ms (Views: 49.5ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/users?utf8=%E2%9C%93&keyword=fewa" for ::1 at 2015-05-31 15:24:32 -0500
+Processing by UsersController#index as HTML
+  Parameters: {"utf8"=>"✓", "keyword"=>"fewa"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE (username LIKE '%fewa%')[0m
+  [1m[35mFollow Load (0.2ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."fan_id" = ? AND "follows"."star_id" = ? LIMIT 1  [["fan_id", 4], ["star_id", 3]]
+  [1m[36mFollow Load (0.3ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" = ? LIMIT 1[0m  [["star_id", 4], ["fan_id", 3]]
+  [1m[35mConnection Load (0.5ms)[0m  SELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" = ? LIMIT 1  [["user_one_id", 4], ["user_two_id", 3]]
+  [1m[36mConnection Load (0.2ms)[0m  [1mSELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" = ? LIMIT 1[0m  [["user_one_id", 3], ["user_two_id", 4]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "connections" ("user_one_id", "user_two_id", "date") VALUES (?, ?, ?)[0m  [["user_one_id", 4], ["user_two_id", 3], ["date", 1433103872]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  Rendered users/index.html.erb within layouts/application (10.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+Completed 200 OK in 56ms (Views: 52.6ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/logout" for ::1 at 2015-05-31 15:24:38 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-05-31 15:24:38 -0500
+Processing by TweetsController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:24:38 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 24ms (Views: 23.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:26:33 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 31ms (Views: 30.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:26:34 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 57ms (Views: 56.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-05-31 15:26:55 -0500
+Processing by TweetsController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:26:55 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 41ms (Views: 40.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-05-31 15:26:58 -0500
+Processing by TweetsController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:26:58 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 27ms (Views: 26.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-05-31 15:26:59 -0500
+Processing by TweetsController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:26:59 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 28ms (Views: 27.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-05-31 15:26:59 -0500
+Processing by TweetsController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:26:59 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 46ms (Views: 45.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:27:19 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 41ms (Views: 40.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users?utf8=%E2%9C%93&keyword=" for ::1 at 2015-05-31 15:27:21 -0500
+Processing by UsersController#index as HTML
+  Parameters: {"utf8"=>"✓", "keyword"=>""}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mFollow Load (0.2ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."fan_id" = ? AND "follows"."star_id" IS NULL LIMIT 1[0m  [["fan_id", 1]]
+  [1m[35mFollow Load (0.2ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" IS NULL LIMIT 1  [["star_id", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1mSELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" IS NULL LIMIT 1[0m  [["user_one_id", 1]]
+  [1m[35mFollow Load (0.1ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."fan_id" = ? AND "follows"."star_id" IS NULL LIMIT 1  [["fan_id", 2]]
+  [1m[36mFollow Load (0.1ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" IS NULL LIMIT 1[0m  [["star_id", 2]]
+  [1m[35mConnection Load (0.1ms)[0m  SELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" IS NULL LIMIT 1  [["user_one_id", 2]]
+  [1m[36mFollow Load (0.1ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."fan_id" = ? AND "follows"."star_id" IS NULL LIMIT 1[0m  [["fan_id", 3]]
+  [1m[35mFollow Load (0.1ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" IS NULL LIMIT 1  [["star_id", 3]]
+  [1m[36mConnection Load (0.1ms)[0m  [1mSELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" IS NULL LIMIT 1[0m  [["user_one_id", 3]]
+  [1m[35mFollow Load (0.1ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."fan_id" = ? AND "follows"."star_id" IS NULL LIMIT 1  [["fan_id", 4]]
+  [1m[36mFollow Load (0.1ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" IS NULL LIMIT 1[0m  [["star_id", 4]]
+  [1m[35mConnection Load (0.1ms)[0m  SELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" IS NULL LIMIT 1  [["user_one_id", 4]]
+  [1m[36mFollow Load (0.1ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."fan_id" = ? AND "follows"."star_id" IS NULL LIMIT 1[0m  [["fan_id", 5]]
+  [1m[35mFollow Load (0.1ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" IS NULL LIMIT 1  [["star_id", 5]]
+  [1m[36mConnection Load (0.1ms)[0m  [1mSELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" IS NULL LIMIT 1[0m  [["user_one_id", 5]]
+  [1m[35mFollow Load (0.1ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."fan_id" = ? AND "follows"."star_id" IS NULL LIMIT 1  [["fan_id", 6]]
+  [1m[36mFollow Load (0.1ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" IS NULL LIMIT 1[0m  [["star_id", 6]]
+  [1m[35mConnection Load (0.1ms)[0m  SELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" IS NULL LIMIT 1  [["user_one_id", 6]]
+  Rendered users/index.html.erb within layouts/application (33.4ms)
+Completed 200 OK in 73ms (Views: 60.5ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/users/1/follows" for ::1 at 2015-05-31 15:27:23 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:27:23 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 32ms (Views: 30.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/2/follows" for ::1 at 2015-05-31 15:27:25 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"2"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:27:25 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 33ms (Views: 32.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/3/follows" for ::1 at 2015-05-31 15:27:26 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:27:26 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 32ms (Views: 31.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/1/follows" for ::1 at 2015-05-31 15:27:32 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:27:32 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 39ms (Views: 38.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/2/follows" for ::1 at 2015-05-31 15:27:33 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:27:33 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 31ms (Views: 30.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/3/follows" for ::1 at 2015-05-31 15:27:34 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:27:34 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 42ms (Views: 41.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/1/follows" for ::1 at 2015-05-31 15:28:04 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:28:04 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 68ms (Views: 67.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/1/follows" for ::1 at 2015-05-31 15:28:05 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:28:05 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 47ms (Views: 46.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-05-31 15:28:16 -0500
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.2ms)[0m  [1mSELECT  "tweets".* FROM "tweets"  ORDER BY date desc LIMIT 5 OFFSET 0[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tweets"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc[0m  [["tweet_id", 11]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc  [["tweet_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc[0m  [["tweet_id", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc  [["tweet_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc[0m  [["tweet_id", 7]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "follows" WHERE "follows"."fan_id" = ?  [["fan_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "follows" WHERE "follows"."fan_id" = ?[0m  [["fan_id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?  [["user_id", 3]]
+  Rendered tweets/index.html.erb within layouts/application (21.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+Completed 200 OK in 55ms (Views: 46.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/logout" for ::1 at 2015-05-31 15:28:18 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-05-31 15:28:18 -0500
+Processing by TweetsController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:28:18 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 24ms (Views: 23.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users?utf8=%E2%9C%93&keyword=" for ::1 at 2015-05-31 15:28:20 -0500
+Processing by UsersController#index as HTML
+  Parameters: {"utf8"=>"✓", "keyword"=>""}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mFollow Load (0.3ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."fan_id" = ? AND "follows"."star_id" IS NULL LIMIT 1[0m  [["fan_id", 1]]
+  [1m[35mFollow Load (0.2ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" IS NULL LIMIT 1  [["star_id", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1mSELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" IS NULL LIMIT 1[0m  [["user_one_id", 1]]
+  [1m[35mFollow Load (0.2ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."fan_id" = ? AND "follows"."star_id" IS NULL LIMIT 1  [["fan_id", 2]]
+  [1m[36mFollow Load (0.1ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" IS NULL LIMIT 1[0m  [["star_id", 2]]
+  [1m[35mConnection Load (0.3ms)[0m  SELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" IS NULL LIMIT 1  [["user_one_id", 2]]
+  [1m[36mFollow Load (0.1ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."fan_id" = ? AND "follows"."star_id" IS NULL LIMIT 1[0m  [["fan_id", 3]]
+  [1m[35mFollow Load (0.1ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" IS NULL LIMIT 1  [["star_id", 3]]
+  [1m[36mConnection Load (0.1ms)[0m  [1mSELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" IS NULL LIMIT 1[0m  [["user_one_id", 3]]
+  [1m[35mFollow Load (0.1ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."fan_id" = ? AND "follows"."star_id" IS NULL LIMIT 1  [["fan_id", 4]]
+  [1m[36mFollow Load (0.1ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" IS NULL LIMIT 1[0m  [["star_id", 4]]
+  [1m[35mConnection Load (0.1ms)[0m  SELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" IS NULL LIMIT 1  [["user_one_id", 4]]
+  [1m[36mFollow Load (0.1ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."fan_id" = ? AND "follows"."star_id" IS NULL LIMIT 1[0m  [["fan_id", 5]]
+  [1m[35mFollow Load (0.1ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" IS NULL LIMIT 1  [["star_id", 5]]
+  [1m[36mConnection Load (0.1ms)[0m  [1mSELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" IS NULL LIMIT 1[0m  [["user_one_id", 5]]
+  [1m[35mFollow Load (0.1ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."fan_id" = ? AND "follows"."star_id" IS NULL LIMIT 1  [["fan_id", 6]]
+  [1m[36mFollow Load (0.1ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" IS NULL LIMIT 1[0m  [["star_id", 6]]
+  [1m[35mConnection Load (0.2ms)[0m  SELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" IS NULL LIMIT 1  [["user_one_id", 6]]
+  Rendered users/index.html.erb within layouts/application (20.2ms)
+Completed 200 OK in 59ms (Views: 55.5ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/users/1/follows" for ::1 at 2015-05-31 15:28:25 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:28:25 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 32ms (Views: 31.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/1/follows" for ::1 at 2015-05-31 15:28:26 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:28:26 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 35ms (Views: 34.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/1/follows" for ::1 at 2015-05-31 15:28:37 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:28:37 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 64ms (Views: 63.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/1/follows" for ::1 at 2015-05-31 15:28:37 -0500
+Processing by FollowsController#create as JS
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :find_user rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for ::1 at 2015-05-31 15:28:37 -0500
+Processing by SessionsController#new as JS
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 39ms (Views: 36.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TEMPORARY TABLE "amessages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar, "date" integer, "is_read" boolean DEFAULT 'f', "sender_id" integer, "receiver_id" integer, "connection_id" integer) 
   [1m[36m (0.1ms)[0m  [1m            SELECT sql
             FROM sqlite_master
             WHERE name='index_messages_on_connection_id' AND type='index'
@@ -52083,7 +52960,7 @@ Completed 200 OK in 35ms (Views: 33.6ms | ActiveRecord: 0.3ms)
             FROM sqlite_temp_master
             WHERE name='index_messages_on_receiver_id' AND type='index'
 
-  [1m[36m (0.0ms)[0m  [1m            SELECT sql
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
             FROM sqlite_master
             WHERE name='index_messages_on_sender_id' AND type='index'
             UNION ALL
@@ -52091,11 +52968,11 @@ Completed 200 OK in 35ms (Views: 33.6ms | ActiveRecord: 0.3ms)
             FROM sqlite_temp_master
             WHERE name='index_messages_on_sender_id' AND type='index'
 [0m
-  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
   [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "tindex_amessages_on_connection_id" ON "amessages" ("connection_id")[0m
   [1m[35m (0.1ms)[0m  CREATE  INDEX "tindex_amessages_on_receiver_id" ON "amessages" ("receiver_id")
   [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "tindex_amessages_on_sender_id" ON "amessages" ("sender_id")[0m
-  [1m[35m (0.4ms)[0m  SELECT * FROM "messages"
+  [1m[35m (0.3ms)[0m  SELECT * FROM "messages"
   [1m[36m (0.1ms)[0m  [1mINSERT INTO "amessages" ("id","content","date","is_read","sender_id","receiver_id","connection_id") VALUES (1, 'Hahahaha. That''s funny. Yeah. I might have to buy a new one tmr', 1432931316, 'f', 3, 2, 1)[0m
   [1m[35m (0.1ms)[0m  INSERT INTO "amessages" ("id","content","date","is_read","sender_id","receiver_id","connection_id") VALUES (2, 'Oh hey. All of my friends are friends with you now.', 1432931383, 'f', 2, 3, 1)
   [1m[36m (0.1ms)[0m  [1mINSERT INTO "amessages" ("id","content","date","is_read","sender_id","receiver_id","connection_id") VALUES (3, 'Haha. Yay!', 1432931454, 'f', 3, 2, 1)[0m
@@ -52103,12 +52980,12 @@ Completed 200 OK in 35ms (Views: 33.6ms | ActiveRecord: 0.3ms)
   [1m[36m (0.1ms)[0m  [1mINSERT INTO "amessages" ("id","content","date","is_read","sender_id","receiver_id","connection_id") VALUES (5, 'Hahahaha. That''s funny. Yeah. I might have to buy a new one tmr', 1432931316, 'f', 3, 1, 2)[0m
   [1m[35m (0.1ms)[0m  INSERT INTO "amessages" ("id","content","date","is_read","sender_id","receiver_id","connection_id") VALUES (6, 'Oh hey. All of my friends are friends with you now.', 1432931383, 'f', 1, 3, 2)
   [1m[36m (0.1ms)[0m  [1mINSERT INTO "amessages" ("id","content","date","is_read","sender_id","receiver_id","connection_id") VALUES (7, 'Haha. Yay!', 1432931454, 'f', 3, 1, 2)[0m
-  [1m[35m (0.1ms)[0m  INSERT INTO "amessages" ("id","content","date","is_read","sender_id","receiver_id","connection_id") VALUES (8, 'My old one got wet and fried a few months ago', 1432931529, 'f', 1, 3, 2)
+  [1m[35m (0.0ms)[0m  INSERT INTO "amessages" ("id","content","date","is_read","sender_id","receiver_id","connection_id") VALUES (8, 'My old one got wet and fried a few months ago', 1432931529, 'f', 1, 3, 2)
   [1m[36m (0.1ms)[0m  [1mINSERT INTO "amessages" ("id","content","date","is_read","sender_id","receiver_id","connection_id") VALUES (9, 'hello', 1433101806, 'f', 5, 1, 4)[0m
   [1m[35m (0.1ms)[0m  INSERT INTO "amessages" ("id","content","date","is_read","sender_id","receiver_id","connection_id") VALUES (10, 'hello', 1433101935, 'f', 6, 1, 6)
   [1m[36m (0.0ms)[0m  [1mINSERT INTO "amessages" ("id","content","date","is_read","sender_id","receiver_id","connection_id") VALUES (11, 'h', 1433101943, 'f', 6, 2, 7)[0m
-  [1m[35m (1.9ms)[0m  DROP TABLE "messages"
-  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar, "date" integer, "is_read" boolean DEFAULT 'f', "sender_id" integer, "receiver_id" integer, "connection_id" integer) [0m
+  [1m[35m (1.8ms)[0m  DROP TABLE "messages"
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar, "date" integer, "is_read" boolean DEFAULT 'f', "sender_id" integer, "receiver_id" integer, "connection_id" integer) [0m
   [1m[35m (0.1ms)[0m              SELECT sql
             FROM sqlite_master
             WHERE name='tindex_amessages_on_sender_id' AND type='index'
@@ -52133,7 +53010,7 @@ Completed 200 OK in 35ms (Views: 33.6ms | ActiveRecord: 0.3ms)
             FROM sqlite_temp_master
             WHERE name='tindex_amessages_on_connection_id' AND type='index'
 
-  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "index_messages_on_sender_id" ON "messages" ("sender_id")[0m
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_messages_on_sender_id" ON "messages" ("sender_id")[0m
   [1m[35m (0.1ms)[0m              SELECT sql
             FROM sqlite_master
             WHERE name='index_messages_on_sender_id' AND type='index'
@@ -52164,18 +53041,18 @@ Completed 200 OK in 35ms (Views: 33.6ms | ActiveRecord: 0.3ms)
   [1m[35m (0.1ms)[0m  INSERT INTO "messages" ("id","content","date","is_read","sender_id","receiver_id","connection_id") VALUES (1, 'Hahahaha. That''s funny. Yeah. I might have to buy a new one tmr', 1432931316, 'f', 3, 2, 1)
   [1m[36m (0.1ms)[0m  [1mINSERT INTO "messages" ("id","content","date","is_read","sender_id","receiver_id","connection_id") VALUES (2, 'Oh hey. All of my friends are friends with you now.', 1432931383, 'f', 2, 3, 1)[0m
   [1m[35m (0.1ms)[0m  INSERT INTO "messages" ("id","content","date","is_read","sender_id","receiver_id","connection_id") VALUES (3, 'Haha. Yay!', 1432931454, 'f', 3, 2, 1)
-  [1m[36m (0.1ms)[0m  [1mINSERT INTO "messages" ("id","content","date","is_read","sender_id","receiver_id","connection_id") VALUES (4, 'My old one got wet and fried a few months ago', 1432931529, 'f', 2, 3, 1)[0m
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "messages" ("id","content","date","is_read","sender_id","receiver_id","connection_id") VALUES (4, 'My old one got wet and fried a few months ago', 1432931529, 'f', 2, 3, 1)[0m
   [1m[35m (0.1ms)[0m  INSERT INTO "messages" ("id","content","date","is_read","sender_id","receiver_id","connection_id") VALUES (5, 'Hahahaha. That''s funny. Yeah. I might have to buy a new one tmr', 1432931316, 'f', 3, 1, 2)
   [1m[36m (0.1ms)[0m  [1mINSERT INTO "messages" ("id","content","date","is_read","sender_id","receiver_id","connection_id") VALUES (6, 'Oh hey. All of my friends are friends with you now.', 1432931383, 'f', 1, 3, 2)[0m
-  [1m[35m (0.1ms)[0m  INSERT INTO "messages" ("id","content","date","is_read","sender_id","receiver_id","connection_id") VALUES (7, 'Haha. Yay!', 1432931454, 'f', 3, 1, 2)
-  [1m[36m (0.2ms)[0m  [1mINSERT INTO "messages" ("id","content","date","is_read","sender_id","receiver_id","connection_id") VALUES (8, 'My old one got wet and fried a few months ago', 1432931529, 'f', 1, 3, 2)[0m
-  [1m[35m (0.1ms)[0m  INSERT INTO "messages" ("id","content","date","is_read","sender_id","receiver_id","connection_id") VALUES (9, 'hello', 1433101806, 'f', 5, 1, 4)
+  [1m[35m (0.0ms)[0m  INSERT INTO "messages" ("id","content","date","is_read","sender_id","receiver_id","connection_id") VALUES (7, 'Haha. Yay!', 1432931454, 'f', 3, 1, 2)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "messages" ("id","content","date","is_read","sender_id","receiver_id","connection_id") VALUES (8, 'My old one got wet and fried a few months ago', 1432931529, 'f', 1, 3, 2)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "messages" ("id","content","date","is_read","sender_id","receiver_id","connection_id") VALUES (9, 'hello', 1433101806, 'f', 5, 1, 4)
   [1m[36m (0.1ms)[0m  [1mINSERT INTO "messages" ("id","content","date","is_read","sender_id","receiver_id","connection_id") VALUES (10, 'hello', 1433101935, 'f', 6, 1, 6)[0m
-  [1m[35m (0.1ms)[0m  INSERT INTO "messages" ("id","content","date","is_read","sender_id","receiver_id","connection_id") VALUES (11, 'h', 1433101943, 'f', 6, 2, 7)
+  [1m[35m (0.0ms)[0m  INSERT INTO "messages" ("id","content","date","is_read","sender_id","receiver_id","connection_id") VALUES (11, 'h', 1433101943, 'f', 6, 2, 7)
   [1m[36m (0.4ms)[0m  [1mDROP TABLE "amessages"[0m
-  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[35m (1.6ms)[0m  commit transaction
   [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35m (0.1ms)[0m              SELECT sql
+  [1m[35m (0.2ms)[0m              SELECT sql
             FROM sqlite_master
             WHERE name='index_comments_on_user_id' AND type='index'
             UNION ALL
@@ -52183,7 +53060,7 @@ Completed 200 OK in 35ms (Views: 33.6ms | ActiveRecord: 0.3ms)
             FROM sqlite_temp_master
             WHERE name='index_comments_on_user_id' AND type='index'
 
-  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
             FROM sqlite_master
             WHERE name='index_comments_on_tweet_id' AND type='index'
             UNION ALL
@@ -52191,7 +53068,7 @@ Completed 200 OK in 35ms (Views: 33.6ms | ActiveRecord: 0.3ms)
             FROM sqlite_temp_master
             WHERE name='index_comments_on_tweet_id' AND type='index'
 [0m
-  [1m[35m (0.2ms)[0m              SELECT sql
+  [1m[35m (0.1ms)[0m              SELECT sql
             FROM sqlite_master
             WHERE name='index_connections_on_user_two_id' AND type='index'
             UNION ALL
@@ -52231,7 +53108,7 @@ Completed 200 OK in 35ms (Views: 33.6ms | ActiveRecord: 0.3ms)
             FROM sqlite_temp_master
             WHERE name='index_likes_on_user_id' AND type='index'
 
-  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
             FROM sqlite_master
             WHERE name='index_likes_on_tweet_id' AND type='index'
             UNION ALL
@@ -52247,7 +53124,7 @@ Completed 200 OK in 35ms (Views: 33.6ms | ActiveRecord: 0.3ms)
             FROM sqlite_temp_master
             WHERE name='index_messages_on_connection_id' AND type='index'
 
-  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
             FROM sqlite_master
             WHERE name='index_messages_on_receiver_id' AND type='index'
             UNION ALL
@@ -52255,7 +53132,7 @@ Completed 200 OK in 35ms (Views: 33.6ms | ActiveRecord: 0.3ms)
             FROM sqlite_temp_master
             WHERE name='index_messages_on_receiver_id' AND type='index'
 [0m
-  [1m[35m (0.2ms)[0m              SELECT sql
+  [1m[35m (0.1ms)[0m              SELECT sql
             FROM sqlite_master
             WHERE name='index_messages_on_sender_id' AND type='index'
             UNION ALL
@@ -52280,7 +53157,7 @@ Completed 200 OK in 35ms (Views: 33.6ms | ActiveRecord: 0.3ms)
             FROM sqlite_temp_master
             WHERE name='index_comments_on_user_id' AND type='index'
 [0m
-  [1m[35m (0.1ms)[0m              SELECT sql
+  [1m[35m (0.2ms)[0m              SELECT sql
             FROM sqlite_master
             WHERE name='index_comments_on_tweet_id' AND type='index'
             UNION ALL
@@ -52288,7 +53165,7 @@ Completed 200 OK in 35ms (Views: 33.6ms | ActiveRecord: 0.3ms)
             FROM sqlite_temp_master
             WHERE name='index_comments_on_tweet_id' AND type='index'
 
-  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
             FROM sqlite_master
             WHERE name='index_connections_on_user_two_id' AND type='index'
             UNION ALL
@@ -52296,7 +53173,7 @@ Completed 200 OK in 35ms (Views: 33.6ms | ActiveRecord: 0.3ms)
             FROM sqlite_temp_master
             WHERE name='index_connections_on_user_two_id' AND type='index'
 [0m
-  [1m[35m (0.1ms)[0m              SELECT sql
+  [1m[35m (0.3ms)[0m              SELECT sql
             FROM sqlite_master
             WHERE name='index_connections_on_user_one_id' AND type='index'
             UNION ALL
@@ -52304,7 +53181,7 @@ Completed 200 OK in 35ms (Views: 33.6ms | ActiveRecord: 0.3ms)
             FROM sqlite_temp_master
             WHERE name='index_connections_on_user_one_id' AND type='index'
 
-  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
             FROM sqlite_master
             WHERE name='index_follows_on_star_id' AND type='index'
             UNION ALL
@@ -52312,7 +53189,7 @@ Completed 200 OK in 35ms (Views: 33.6ms | ActiveRecord: 0.3ms)
             FROM sqlite_temp_master
             WHERE name='index_follows_on_star_id' AND type='index'
 [0m
-  [1m[35m (0.1ms)[0m              SELECT sql
+  [1m[35m (0.2ms)[0m              SELECT sql
             FROM sqlite_master
             WHERE name='index_follows_on_fan_id' AND type='index'
             UNION ALL
@@ -52320,7 +53197,7 @@ Completed 200 OK in 35ms (Views: 33.6ms | ActiveRecord: 0.3ms)
             FROM sqlite_temp_master
             WHERE name='index_follows_on_fan_id' AND type='index'
 
-  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
             FROM sqlite_master
             WHERE name='index_likes_on_user_id' AND type='index'
             UNION ALL
@@ -52368,578 +53245,127 @@ Completed 200 OK in 35ms (Views: 33.6ms | ActiveRecord: 0.3ms)
             FROM sqlite_temp_master
             WHERE name='index_tweets_on_user_id' AND type='index'
 
-  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35mSQL (1.0ms)[0m  DELETE FROM "users"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "users"
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
   [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'yanzhewu@uchicago.edu' LIMIT 1
   [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'yanzhewu' LIMIT 1[0m
-  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("id", "username", "password_digest", "email", "image") VALUES (?, ?, ?, ?, ?)  [["id", 1], ["username", "yanzhewu"], ["password_digest", "$2a$10$rMfUk1azVhLYLXaxuP9jZOUqzHTHkFhx5Od/lnLWWY7BZh1.YNXcy"], ["email", "yanzhewu@uchicago.edu"], ["image", "http://tp3.sinaimg.cn/1442054902/50/40002770510/1"]]
-  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("id", "username", "password_digest", "email", "image") VALUES (?, ?, ?, ?, ?)  [["id", 1], ["username", "yanzhewu"], ["password_digest", "$2a$10$O8CWll6ppWuibz/s9Rajz.eXxhtQrTQANBByiN52CMBXc8DK9wr0e"], ["email", "yanzhewu@uchicago.edu"], ["image", "http://tp3.sinaimg.cn/1442054902/50/40002770510/1"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
   [1m[35m (0.1ms)[0m  begin transaction
   [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'haozhou@uchicago.edu' LIMIT 1[0m
   [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."username" = 'haozhou' LIMIT 1
-  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("id", "username", "password_digest", "email", "image") VALUES (?, ?, ?, ?, ?)[0m  [["id", 2], ["username", "haozhou"], ["password_digest", "$2a$10$nbIVh2Pz9EVlQlNrbuOduOTh3yxLQezRpsnWtFpteydk85eItL07K"], ["email", "haozhou@uchicago.edu"], ["image", "http://tp4.sinaimg.cn/1438513755/180/40008758792/1"]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("id", "username", "password_digest", "email", "image") VALUES (?, ?, ?, ?, ?)[0m  [["id", 2], ["username", "haozhou"], ["password_digest", "$2a$10$ymcuZQD8uSVGdR2oGYTNS.6LCsemIswSsSKBX5dTE/tfJCrY0XSOO"], ["email", "haozhou@uchicago.edu"], ["image", "http://tp4.sinaimg.cn/1438513755/180/40008758792/1"]]
   [1m[35m (0.7ms)[0m  commit transaction
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'lingduokong@uchicago.edu' LIMIT 1
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'lingduokong@uchicago.edu' LIMIT 1
   [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'lingduokong' LIMIT 1[0m
-  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("id", "username", "password_digest", "email", "image") VALUES (?, ?, ?, ?, ?)  [["id", 3], ["username", "lingduokong"], ["password_digest", "$2a$10$ZsV6u5uAChdjhhe9pPqmW.QurpU6gy7TtkAIXw7zMq4PjdwbMzOxa"], ["email", "lingduokong@uchicago.edu"], ["image", "http://tp2.sinaimg.cn/1666978981/50/5723425429/0"]]
-  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
-  [1m[35mSQL (0.9ms)[0m  DELETE FROM "tweets"
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("id", "username", "password_digest", "email", "image") VALUES (?, ?, ?, ?, ?)  [["id", 3], ["username", "lingduokong"], ["password_digest", "$2a$10$065ZzgUFNI/wd88Kh.sY8ePQK.0huJEYCqM6jqD4BomLGOuN.1F8."], ["email", "lingduokong@uchicago.edu"], ["image", "http://tp2.sinaimg.cn/1666978981/50/5723425429/0"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mSQL (1.4ms)[0m  DELETE FROM "tweets"
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
   [1m[35mSQL (0.3ms)[0m  INSERT INTO "tweets" ("id", "content", "date", "user_id", "image") VALUES (?, ?, ?, ?, ?)  [["id", 1], ["content", "Lous challenge anyone???????"], ["date", 1425069955], ["user_id", 1], ["image", "http://ww1.sinaimg.cn/bmiddle/6973530djw1esi5icwcmuj20ji0yojua.jpg"]]
   [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
-  [1m[35m (0.0ms)[0m  begin transaction
-  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tweets" ("id", "content", "date", "user_id", "image") VALUES (?, ?, ?, ?, ?)[0m  [["id", 2], ["content", "An entire team of Apple developers was there 24/7 to help, so that was a wonderful resource to learn Swift and Objective C in a weekend."], ["date", 1425069957], ["user_id", 2], ["image", "http://ww4.sinaimg.cn/square/87246b09jw1esguiqhsjpj20zk0qodot.jpg"]]
-  [1m[35m (0.7ms)[0m  commit transaction
-  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("id", "content", "date", "user_id", "image") VALUES (?, ?, ?, ?, ?)  [["id", 3], ["content", "CSIL is once again selling discounted used computers and monitors for university students and staff! Models for sale are MacPro(2010), Shuttle, and 24\" Apple LED Cinema Display. First come, first serve."], ["date", 1425069955], ["user_id", 3], ["image", "http://ww1.sinaimg.cn/thumbnail/6ac4d14dgw1esi2hn6vmdj20dw0dwdhr.jpg"]]
-  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
-  [1m[35m (0.0ms)[0m  begin transaction
-  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tweets" ("id", "content", "date", "user_id", "image") VALUES (?, ?, ?, ?, ?)[0m  [["id", 4], ["content", "Went to an alum potluck, being the only student showing up with four alums around, which is pretty cool and actually the best alum event so far!"], ["date", 1425069955], ["user_id", 1], ["image", "http://ww3.sinaimg.cn/bmiddle/4a23d069jw1esi60jgix6j20v815owoq.jpg"]]
-  [1m[35m (0.6ms)[0m  commit transaction
-  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("id", "content", "date", "user_id", "image") VALUES (?, ?, ?, ?, ?)  [["id", 5], ["content", "Wish I could graduate again ‪#‎BadgerMemory‬"], ["date", 1425963490], ["user_id", 2], ["image", "http://ww4.sinaimg.cn/square/005wlOCojw1esi2tymbxjj30zk0k042w.jpg"]]
-  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
-  [1m[35m (0.0ms)[0m  begin transaction
-  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tweets" ("id", "content", "date", "user_id", "image") VALUES (?, ?, ?, ?, ?)[0m  [["id", 6], ["content", "Lous challenge anyone???????"], ["date", 1425069955], ["user_id", 1], ["image", "http://ww1.sinaimg.cn/bmiddle/6973530djw1esi5icwcmuj20ji0yojua.jpg"]]
-  [1m[35m (0.6ms)[0m  commit transaction
-  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("id", "content", "date", "user_id", "image") VALUES (?, ?, ?, ?, ?)  [["id", 7], ["content", "An entire team of Apple developers was there 24/7 to help, so that was a wonderful resource to learn Swift and Objective C in a weekend."], ["date", 1425069957], ["user_id", 2], ["image", "http://ww4.sinaimg.cn/square/87246b09jw1esguiqhsjpj20zk0qodot.jpg"]]
-  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
-  [1m[35m (0.0ms)[0m  begin transaction
-  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tweets" ("id", "content", "date", "user_id", "image") VALUES (?, ?, ?, ?, ?)[0m  [["id", 8], ["content", "CSIL is once again selling discounted used computers and monitors for university students and staff! Models for sale are MacPro(2010), Shuttle, and 24\" Apple LED Cinema Display. First come, first serve."], ["date", 1425069955], ["user_id", 3], ["image", "http://ww1.sinaimg.cn/thumbnail/6ac4d14dgw1esi2hn6vmdj20dw0dwdhr.jpg"]]
-  [1m[35m (0.6ms)[0m  commit transaction
-  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("id", "content", "date", "user_id", "image") VALUES (?, ?, ?, ?, ?)  [["id", 9], ["content", "Went to an alum potluck, being the only student showing up with four alums around, which is pretty cool and actually the best alum event so far!"], ["date", 1425069955], ["user_id", 1], ["image", "http://ww3.sinaimg.cn/bmiddle/4a23d069jw1esi60jgix6j20v815owoq.jpg"]]
-  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
-  [1m[35m (0.0ms)[0m  begin transaction
-  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tweets" ("id", "content", "date", "user_id", "image") VALUES (?, ?, ?, ?, ?)[0m  [["id", 10], ["content", "Wish I could graduate again ‪#‎BadgerMemory‬"], ["date", 1425963490], ["user_id", 2], ["image", "http://ww4.sinaimg.cn/square/005wlOCojw1esi2tymbxjj30zk0k042w.jpg"]]
-  [1m[35m (0.7ms)[0m  commit transaction
-  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "comments"[0m
-  [1m[35m (0.0ms)[0m  begin transaction
-  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("id", "content", "date", "tweet_id", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["id", 1], ["content", "You cant like your own post..."], ["date", 1431983183], ["tweet_id", 1], ["user_id", 1]]
-  [1m[35m (0.7ms)[0m  commit transaction
-  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("id", "content", "date", "tweet_id", "user_id") VALUES (?, ?, ?, ?, ?)  [["id", 2], ["content", "I must have been a little drunk"], ["date", 1431983197], ["tweet_id", 1], ["user_id", 2]]
-  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
-  [1m[35m (0.0ms)[0m  begin transaction
-  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("id", "content", "date", "tweet_id", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["id", 3], ["content", "That was at hydrate"], ["date", 1431983352], ["tweet_id", 1], ["user_id", 3]]
-  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tweets" ("id", "content", "date", "user_id", "image") VALUES (?, ?, ?, ?, ?)[0m  [["id", 2], ["content", "An entire team of Apple developers was there 24/7 to help, so that was a wonderful resource to learn Swift and Objective C in a weekend."], ["date", 1425069957], ["user_id", 2], ["image", "http://ww4.sinaimg.cn/square/87246b09jw1esguiqhsjpj20zk0qodot.jpg"]]
+  [1m[35m (0.9ms)[0m  commit transaction
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("id", "content", "date", "tweet_id", "user_id") VALUES (?, ?, ?, ?, ?)  [["id", 4], ["content", "I heard you bumped into Alex in Chicago lol, the world is too small!"], ["date", 1431983363], ["tweet_id", 1], ["user_id", 3]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tweets" ("id", "content", "date", "user_id", "image") VALUES (?, ?, ?, ?, ?)  [["id", 3], ["content", "CSIL is once again selling discounted used computers and monitors for university students and staff! Models for sale are MacPro(2010), Shuttle, and 24\" Apple LED Cinema Display. First come, first serve."], ["date", 1425069955], ["user_id", 3], ["image", "http://ww1.sinaimg.cn/thumbnail/6ac4d14dgw1esi2hn6vmdj20dw0dwdhr.jpg"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tweets" ("id", "content", "date", "user_id", "image") VALUES (?, ?, ?, ?, ?)[0m  [["id", 4], ["content", "Went to an alum potluck, being the only student showing up with four alums around, which is pretty cool and actually the best alum event so far!"], ["date", 1425069955], ["user_id", 1], ["image", "http://ww3.sinaimg.cn/bmiddle/4a23d069jw1esi60jgix6j20v815owoq.jpg"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tweets" ("id", "content", "date", "user_id", "image") VALUES (?, ?, ?, ?, ?)  [["id", 5], ["content", "Wish I could graduate again ‪#‎BadgerMemory‬"], ["date", 1425963490], ["user_id", 2], ["image", "http://ww4.sinaimg.cn/square/005wlOCojw1esi2tymbxjj30zk0k042w.jpg"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tweets" ("id", "content", "date", "user_id", "image") VALUES (?, ?, ?, ?, ?)[0m  [["id", 6], ["content", "Lous challenge anyone???????"], ["date", 1425069955], ["user_id", 1], ["image", "http://ww1.sinaimg.cn/bmiddle/6973530djw1esi5icwcmuj20ji0yojua.jpg"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tweets" ("id", "content", "date", "user_id", "image") VALUES (?, ?, ?, ?, ?)  [["id", 7], ["content", "An entire team of Apple developers was there 24/7 to help, so that was a wonderful resource to learn Swift and Objective C in a weekend."], ["date", 1425069957], ["user_id", 2], ["image", "http://ww4.sinaimg.cn/square/87246b09jw1esguiqhsjpj20zk0qodot.jpg"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tweets" ("id", "content", "date", "user_id", "image") VALUES (?, ?, ?, ?, ?)[0m  [["id", 8], ["content", "CSIL is once again selling discounted used computers and monitors for university students and staff! Models for sale are MacPro(2010), Shuttle, and 24\" Apple LED Cinema Display. First come, first serve."], ["date", 1425069955], ["user_id", 3], ["image", "http://ww1.sinaimg.cn/thumbnail/6ac4d14dgw1esi2hn6vmdj20dw0dwdhr.jpg"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tweets" ("id", "content", "date", "user_id", "image") VALUES (?, ?, ?, ?, ?)  [["id", 9], ["content", "Went to an alum potluck, being the only student showing up with four alums around, which is pretty cool and actually the best alum event so far!"], ["date", 1425069955], ["user_id", 1], ["image", "http://ww3.sinaimg.cn/bmiddle/4a23d069jw1esi60jgix6j20v815owoq.jpg"]]
   [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
   [1m[35m (0.1ms)[0m  begin transaction
-  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "comments" ("id", "content", "date", "tweet_id", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["id", 5], ["content", "You cant like your own post..."], ["date", 1431983183], ["tweet_id", 2], ["user_id", 1]]
-  [1m[35m (0.7ms)[0m  commit transaction
-  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("id", "content", "date", "tweet_id", "user_id") VALUES (?, ?, ?, ?, ?)  [["id", 6], ["content", "I must have been a little drunk"], ["date", 1431983197], ["tweet_id", 2], ["user_id", 2]]
-  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
-  [1m[35m (0.0ms)[0m  begin transaction
-  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("id", "content", "date", "tweet_id", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["id", 7], ["content", "That was at hydrate"], ["date", 1431983352], ["tweet_id", 3], ["user_id", 3]]
-  [1m[35m (0.7ms)[0m  commit transaction
-  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("id", "content", "date", "tweet_id", "user_id") VALUES (?, ?, ?, ?, ?)  [["id", 8], ["content", "I heard you bumped into Alex in Chicago lol, the world is too small!"], ["date", 1431983363], ["tweet_id", 3], ["user_id", 3]]
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "tweets" ("id", "content", "date", "user_id", "image") VALUES (?, ?, ?, ?, ?)[0m  [["id", 10], ["content", "Wish I could graduate again ‪#‎BadgerMemory‬"], ["date", 1425963490], ["user_id", 2], ["image", "http://ww4.sinaimg.cn/square/005wlOCojw1esi2tymbxjj30zk0k042w.jpg"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "comments"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("id", "content", "date", "tweet_id", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["id", 1], ["content", "You cant like your own post..."], ["date", 1431983183], ["tweet_id", 1], ["user_id", 1]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("id", "content", "date", "tweet_id", "user_id") VALUES (?, ?, ?, ?, ?)  [["id", 2], ["content", "I must have been a little drunk"], ["date", 1431983197], ["tweet_id", 1], ["user_id", 2]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("id", "content", "date", "tweet_id", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["id", 3], ["content", "That was at hydrate"], ["date", 1431983352], ["tweet_id", 1], ["user_id", 3]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("id", "content", "date", "tweet_id", "user_id") VALUES (?, ?, ?, ?, ?)  [["id", 4], ["content", "I heard you bumped into Alex in Chicago lol, the world is too small!"], ["date", 1431983363], ["tweet_id", 1], ["user_id", 3]]
   [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
-  [1m[35mSQL (0.8ms)[0m  DELETE FROM "follows"
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("id", "content", "date", "tweet_id", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["id", 5], ["content", "You cant like your own post..."], ["date", 1431983183], ["tweet_id", 2], ["user_id", 1]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "comments" ("id", "content", "date", "tweet_id", "user_id") VALUES (?, ?, ?, ?, ?)  [["id", 6], ["content", "I must have been a little drunk"], ["date", 1431983197], ["tweet_id", 2], ["user_id", 2]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "comments" ("id", "content", "date", "tweet_id", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["id", 7], ["content", "That was at hydrate"], ["date", 1431983352], ["tweet_id", 3], ["user_id", 3]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("id", "content", "date", "tweet_id", "user_id") VALUES (?, ?, ?, ?, ?)  [["id", 8], ["content", "I heard you bumped into Alex in Chicago lol, the world is too small!"], ["date", 1431983363], ["tweet_id", 3], ["user_id", 3]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "follows"
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
   [1m[35mSQL (0.3ms)[0m  INSERT INTO "follows" ("fan_id", "star_id", "id") VALUES (?, ?, ?)  [["fan_id", 1], ["star_id", 2], ["id", 1]]
-  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
-  [1m[35m (0.0ms)[0m  begin transaction
-  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "follows" ("fan_id", "star_id", "id") VALUES (?, ?, ?)[0m  [["fan_id", 1], ["star_id", 3], ["id", 2]]
-  [1m[35m (0.7ms)[0m  commit transaction
-  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-  [1m[35mSQL (0.2ms)[0m  INSERT INTO "follows" ("fan_id", "star_id", "id") VALUES (?, ?, ?)  [["fan_id", 2], ["star_id", 1], ["id", 3]]
-  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
-  [1m[35m (0.0ms)[0m  begin transaction
-  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "follows" ("fan_id", "star_id", "id") VALUES (?, ?, ?)[0m  [["fan_id", 2], ["star_id", 3], ["id", 4]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "follows" ("fan_id", "star_id", "id") VALUES (?, ?, ?)[0m  [["fan_id", 1], ["star_id", 3], ["id", 2]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "follows" ("fan_id", "star_id", "id") VALUES (?, ?, ?)  [["fan_id", 2], ["star_id", 1], ["id", 3]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "follows" ("fan_id", "star_id", "id") VALUES (?, ?, ?)[0m  [["fan_id", 2], ["star_id", 3], ["id", 4]]
   [1m[35m (0.8ms)[0m  commit transaction
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
   [1m[35mSQL (0.3ms)[0m  INSERT INTO "follows" ("fan_id", "star_id", "id") VALUES (?, ?, ?)  [["fan_id", 3], ["star_id", 2], ["id", 5]]
-  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
-  [1m[35m (0.0ms)[0m  begin transaction
-  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "follows" ("fan_id", "star_id", "id") VALUES (?, ?, ?)[0m  [["fan_id", 3], ["star_id", 1], ["id", 6]]
-  [1m[35m (0.7ms)[0m  commit transaction
-  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "messages"[0m
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
   [1m[35m (0.1ms)[0m  begin transaction
-  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "messages" ("id", "content", "date", "sender_id", "receiver_id", "connection_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["content", "Hahahaha. That's funny. Yeah. I might have to buy a new one tmr"], ["date", 1432931316], ["sender_id", 3], ["receiver_id", 2], ["connection_id", 1]]
-  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "follows" ("fan_id", "star_id", "id") VALUES (?, ?, ?)[0m  [["fan_id", 3], ["star_id", 1], ["id", 6]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36mSQL (1.5ms)[0m  [1mDELETE FROM "messages"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "messages" ("id", "content", "date", "sender_id", "receiver_id", "connection_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["content", "Hahahaha. That's funny. Yeah. I might have to buy a new one tmr"], ["date", 1432931316], ["sender_id", 3], ["receiver_id", 2], ["connection_id", 1]]
+  [1m[35m (0.8ms)[0m  commit transaction
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35mSQL (0.3ms)[0m  INSERT INTO "messages" ("id", "content", "date", "sender_id", "receiver_id", "connection_id") VALUES (?, ?, ?, ?, ?, ?)  [["id", 2], ["content", "Oh hey. All of my friends are friends with you now."], ["date", 1432931383], ["sender_id", 2], ["receiver_id", 3], ["connection_id", 1]]
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "messages" ("id", "content", "date", "sender_id", "receiver_id", "connection_id") VALUES (?, ?, ?, ?, ?, ?)  [["id", 2], ["content", "Oh hey. All of my friends are friends with you now."], ["date", 1432931383], ["sender_id", 2], ["receiver_id", 3], ["connection_id", 1]]
   [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
-  [1m[35m (0.0ms)[0m  begin transaction
-  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "messages" ("id", "content", "date", "sender_id", "receiver_id", "connection_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["id", 3], ["content", "Haha. Yay!"], ["date", 1432931454], ["sender_id", 3], ["receiver_id", 2], ["connection_id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "messages" ("id", "content", "date", "sender_id", "receiver_id", "connection_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["id", 3], ["content", "Haha. Yay!"], ["date", 1432931454], ["sender_id", 3], ["receiver_id", 2], ["connection_id", 1]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "messages" ("id", "content", "date", "sender_id", "receiver_id", "connection_id") VALUES (?, ?, ?, ?, ?, ?)  [["id", 4], ["content", "My old one got wet and fried a few months ago"], ["date", 1432931529], ["sender_id", 2], ["receiver_id", 3], ["connection_id", 1]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "messages" ("id", "content", "date", "sender_id", "receiver_id", "connection_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["id", 5], ["content", "Hahahaha. That's funny. Yeah. I might have to buy a new one tmr"], ["date", 1432931316], ["sender_id", 3], ["receiver_id", 1], ["connection_id", 2]]
   [1m[35m (1.0ms)[0m  commit transaction
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("id", "content", "date", "sender_id", "receiver_id", "connection_id") VALUES (?, ?, ?, ?, ?, ?)  [["id", 4], ["content", "My old one got wet and fried a few months ago"], ["date", 1432931529], ["sender_id", 2], ["receiver_id", 3], ["connection_id", 1]]
-  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
-  [1m[35m (0.0ms)[0m  begin transaction
-  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "messages" ("id", "content", "date", "sender_id", "receiver_id", "connection_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["id", 5], ["content", "Hahahaha. That's funny. Yeah. I might have to buy a new one tmr"], ["date", 1432931316], ["sender_id", 3], ["receiver_id", 1], ["connection_id", 2]]
-  [1m[35m (0.6ms)[0m  commit transaction
-  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("id", "content", "date", "sender_id", "receiver_id", "connection_id") VALUES (?, ?, ?, ?, ?, ?)  [["id", 6], ["content", "Oh hey. All of my friends are friends with you now."], ["date", 1432931383], ["sender_id", 1], ["receiver_id", 3], ["connection_id", 2]]
-  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
-  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "messages" ("id", "content", "date", "sender_id", "receiver_id", "connection_id") VALUES (?, ?, ?, ?, ?, ?)  [["id", 6], ["content", "Oh hey. All of my friends are friends with you now."], ["date", 1432931383], ["sender_id", 1], ["receiver_id", 3], ["connection_id", 2]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
   [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "messages" ("id", "content", "date", "sender_id", "receiver_id", "connection_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["id", 7], ["content", "Haha. Yay!"], ["date", 1432931454], ["sender_id", 3], ["receiver_id", 1], ["connection_id", 2]]
   [1m[35m (0.8ms)[0m  commit transaction
-  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("id", "content", "date", "sender_id", "receiver_id", "connection_id") VALUES (?, ?, ?, ?, ?, ?)  [["id", 8], ["content", "My old one got wet and fried a few months ago"], ["date", 1432931529], ["sender_id", 1], ["receiver_id", 3], ["connection_id", 2]]
-  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
-  [1m[35mSQL (0.8ms)[0m  DELETE FROM "connections"
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35mSQL (0.3ms)[0m  INSERT INTO "connections" ("id", "user_one_id", "user_two_id", "date", "last_message") VALUES (?, ?, ?, ?, ?)  [["id", 1], ["user_one_id", 3], ["user_two_id", 2], ["date", 1432931529], ["last_message", "My old one got wet and fried a few months ago"]]
-  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
-  [1m[35m (0.1ms)[0m  begin transaction
-  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "connections" ("id", "user_one_id", "user_two_id", "date", "last_message") VALUES (?, ?, ?, ?, ?)[0m  [["id", 2], ["user_one_id", 1], ["user_two_id", 3], ["date", 1432931549], ["last_message", "My old one got wet and fried a few months ago"]]
-  [1m[35m (0.7ms)[0m  commit transaction
-
-
-Started GET "/" for ::1 at 2015-05-31 15:17:36 -0500
-Processing by TweetsController#index as HTML
-  [1m[36mTweet Load (1.9ms)[0m  [1mSELECT  "tweets".* FROM "tweets"  ORDER BY date desc LIMIT 5 OFFSET 0[0m
-  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tweets"
-  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc[0m  [["tweet_id", 5]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
-  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc  [["tweet_id", 10]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc[0m  [["tweet_id", 2]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
-  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
-  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc  [["tweet_id", 7]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
-  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc[0m  [["tweet_id", 1]]
-  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
-  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
-  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "follows" WHERE "follows"."fan_id" = ?  [["fan_id", 1]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "follows" WHERE "follows"."fan_id" = ?[0m  [["fan_id", 1]]
-  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?  [["user_id", 1]]
-  Rendered tweets/index.html.erb within layouts/application (79.1ms)
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
-Completed 200 OK in 624ms (Views: 598.1ms | ActiveRecord: 4.7ms)
-
-
-Started GET "/logout" for ::1 at 2015-05-31 15:17:43 -0500
-Processing by SessionsController#destroy as HTML
-Redirected to http://localhost:3000/
-Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
-
-
-Started GET "/" for ::1 at 2015-05-31 15:17:43 -0500
-Processing by TweetsController#index as HTML
-Redirected to http://localhost:3000/login
-Filter chain halted as :find_user rendered or redirected
-Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
-
-
-Started GET "/login" for ::1 at 2015-05-31 15:17:43 -0500
-Processing by SessionsController#new as HTML
-  Rendered sessions/new.html.erb within layouts/application (3.0ms)
-Completed 200 OK in 58ms (Views: 56.8ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/login" for ::1 at 2015-05-31 15:17:47 -0500
-Processing by SessionsController#new as HTML
-  Rendered sessions/new.html.erb within layouts/application (1.0ms)
-Completed 200 OK in 38ms (Views: 36.8ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/login" for ::1 at 2015-05-31 15:17:48 -0500
-Processing by SessionsController#new as HTML
-  Rendered sessions/new.html.erb within layouts/application (0.8ms)
-Completed 200 OK in 34ms (Views: 33.8ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/login" for ::1 at 2015-05-31 15:17:49 -0500
-Processing by SessionsController#new as HTML
-  Rendered sessions/new.html.erb within layouts/application (0.5ms)
-Completed 200 OK in 45ms (Views: 44.5ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/signup" for ::1 at 2015-05-31 15:17:50 -0500
-Processing by UsersController#new as HTML
-  Rendered users/new.html.erb within layouts/application (4.9ms)
-Completed 200 OK in 45ms (Views: 43.6ms | ActiveRecord: 0.0ms)
-
-
-Started POST "/users" for ::1 at 2015-05-31 15:18:07 -0500
-Processing by UsersController#create as HTML
-  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6WTjDqIMveWplJFSmQ9P9FQeSsJftNtE72gLZmPVQIwhgDuxMcnOymIPNwsSuCg80jTAFFdPfazYP2oZbbWBXg==", "username"=>"carrera", "email"=>"yanzhewu@example.com", "password"=>"[FILTERED]", "button"=>""}
-  [1m[35m (0.1ms)[0m  begin transaction
-  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'yanzhewu@example.com' LIMIT 1[0m
-  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."username" = 'carrera' LIMIT 1
-  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("username", "email", "password_digest", "image") VALUES (?, ?, ?, ?)[0m  [["username", "carrera"], ["email", "yanzhewu@example.com"], ["password_digest", "$2a$10$pHwnwYV5Vuk7DBetSsHp6e3kW3uduTWRc0e6N3CnR/Z2Shl7KeQ9y"], ["image", "http://tp1.sinaimg.cn/1631772764/50/40008304461/0"]]
-  [1m[35m (0.7ms)[0m  commit transaction
-Redirected to http://localhost:3000/
-Completed 302 Found in 98ms (ActiveRecord: 1.4ms)
-
-
-Started GET "/" for ::1 at 2015-05-31 15:18:07 -0500
-Processing by TweetsController#index as HTML
-Redirected to http://localhost:3000/login
-Filter chain halted as :find_user rendered or redirected
-Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
-
-
-Started GET "/login" for ::1 at 2015-05-31 15:18:07 -0500
-Processing by SessionsController#new as HTML
-  Rendered sessions/new.html.erb within layouts/application (1.7ms)
-Completed 200 OK in 45ms (Views: 44.1ms | ActiveRecord: 0.0ms)
-
-
-Started POST "/sessions" for ::1 at 2015-05-31 15:18:19 -0500
-Processing by SessionsController#create as HTML
-  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aVIEugwo/IxCIGvQWN1/vIeYl8HD3b3tYBBeB5cLg1yhttwFn+2Po4m7zYnTahh0AbIdF8smGwVXRz94mWtCjg==", "email"=>"yanzhewu@example.com", "password"=>"[FILTERED]", "button"=>""}
-  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "yanzhewu@example.com"]]
-Redirected to http://localhost:3000/
-Completed 302 Found in 82ms (ActiveRecord: 1.0ms)
-
-
-Started GET "/" for ::1 at 2015-05-31 15:18:19 -0500
-Processing by TweetsController#index as HTML
-  [1m[35mTweet Load (0.2ms)[0m  SELECT  "tweets".* FROM "tweets"  ORDER BY date desc LIMIT 5 OFFSET 0
-  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tweets"[0m
-  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
-  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc  [["tweet_id", 5]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc[0m  [["tweet_id", 10]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
-  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc  [["tweet_id", 2]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc[0m  [["tweet_id", 7]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
-  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc  [["tweet_id", 1]]
-  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
-  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "follows" WHERE "follows"."fan_id" = ?[0m  [["fan_id", 7]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "follows" WHERE "follows"."fan_id" = ?  [["fan_id", 7]]
-  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 7]]
-  Rendered tweets/index.html.erb within layouts/application (26.6ms)
-  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 7]]
-Completed 200 OK in 72ms (Views: 69.7ms | ActiveRecord: 1.6ms)
-
-
-Started GET "/tweets/5" for ::1 at 2015-05-31 15:18:27 -0500
-Processing by TweetsController#show as HTML
-  Parameters: {"id"=>"5"}
-  [1m[36mTweet Load (0.2ms)[0m  [1mSELECT  "tweets".* FROM "tweets" WHERE "tweets"."id" = ? LIMIT 1[0m  [["id", 5]]
-  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
-  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc  [["tweet_id", 5]]
-  Rendered tweets/show.html.erb within layouts/application (3.3ms)
-  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 7]]
-Completed 200 OK in 40ms (Views: 38.3ms | ActiveRecord: 0.4ms)
-
-
-Started GET "/tweets/5/comments/new" for ::1 at 2015-05-31 15:18:30 -0500
-Processing by CommentsController#new as JS
-  Parameters: {"tweet_id"=>"5"}
-  Rendered comments/_form.html.erb (1.1ms)
-  Rendered comments/new.js.erb (18.4ms)
-Completed 200 OK in 37ms (Views: 36.2ms | ActiveRecord: 0.0ms)
-
-
-Started POST "/tweets/5/comments" for ::1 at 2015-05-31 15:18:33 -0500
-Processing by CommentsController#create as JS
-  Parameters: {"utf8"=>"✓", "comment"=>"sss", "tweet_id"=>"5"}
-  [1m[35m (0.1ms)[0m  begin transaction
-  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("content", "tweet_id", "date", "user_id") VALUES (?, ?, ?, ?)[0m  [["content", "sss"], ["tweet_id", 5], ["date", 1433103513], ["user_id", 7]]
-  [1m[35m (0.7ms)[0m  commit transaction
-  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 7]]
-  [1m[35mCACHE (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 7]]
-  Rendered comments/_comment.html.erb (2.8ms)
-  Rendered comments/create.js.erb (5.6ms)
-Completed 200 OK in 19ms (Views: 11.6ms | ActiveRecord: 1.7ms)
-
-
-Started GET "/users?utf8=%E2%9C%93&keyword=haozhou" for ::1 at 2015-05-31 15:18:43 -0500
-Processing by UsersController#index as HTML
-  Parameters: {"utf8"=>"✓", "keyword"=>"haozhou"}
-  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE (username LIKE '%haozhou%')[0m
-  [1m[35mFollow Load (0.2ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."fan_id" = ? AND "follows"."star_id" = ? LIMIT 1  [["fan_id", 2], ["star_id", 7]]
-  [1m[36mFollow Load (0.3ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" = ? LIMIT 1[0m  [["star_id", 2], ["fan_id", 7]]
-  [1m[35mConnection Load (0.2ms)[0m  SELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" = ? LIMIT 1  [["user_one_id", 2], ["user_two_id", 7]]
-  [1m[36mConnection Load (0.1ms)[0m  [1mSELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" = ? LIMIT 1[0m  [["user_one_id", 7], ["user_two_id", 2]]
-  [1m[35m (0.0ms)[0m  begin transaction
-  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "connections" ("user_one_id", "user_two_id", "date") VALUES (?, ?, ?)[0m  [["user_one_id", 2], ["user_two_id", 7], ["date", 1433103523]]
-  [1m[35m (0.7ms)[0m  commit transaction
-  Rendered users/index.html.erb within layouts/application (23.0ms)
-  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 7]]
-Completed 200 OK in 69ms (Views: 65.0ms | ActiveRecord: 2.4ms)
-
-
-Started POST "/users/2/follows" for ::1 at 2015-05-31 15:18:44 -0500
-Processing by FollowsController#create as JS
-  Parameters: {"user_id"=>"2"}
-  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35mSQL (0.3ms)[0m  INSERT INTO "follows" ("star_id", "fan_id") VALUES (?, ?)  [["star_id", 2], ["fan_id", 7]]
-  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
-  [1m[35mFollow Load (0.1ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."fan_id" = ? AND "follows"."star_id" = ? LIMIT 1  [["fan_id", 2], ["star_id", 7]]
-  [1m[36mFollow Load (0.1ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" = ? LIMIT 1[0m  [["star_id", 2], ["fan_id", 7]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" = ? LIMIT 1  [["star_id", 2], ["fan_id", 7]]
-  [1m[36mConnection Load (0.1ms)[0m  [1mSELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" = ? LIMIT 1[0m  [["user_one_id", 2], ["user_two_id", 7]]
-  Rendered follows/_follow_buttons.html.erb (3.6ms)
-  Rendered follows/new.js.erb (6.4ms)
-Completed 200 OK in 19ms (Views: 11.8ms | ActiveRecord: 1.7ms)
-
-
-Started GET "/connections/8/messages" for ::1 at 2015-05-31 15:18:45 -0500
-Processing by MessagesController#index as HTML
-  Parameters: {"authenticity_token"=>"f6Jylv2KWoYAv3EGSTl8UVMgEqPXlX0+f/+8ytfokj+3Rqopbk8pqcsk11/CjhuZ1QqYdd9u29ZIqN212YhT7Q==", "connection_id"=>"8"}
-  [1m[35mConnection Load (0.2ms)[0m  SELECT  "connections".* FROM "connections" WHERE "connections"."id" = ? LIMIT 1  [["id", 8]]
-  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 7]]
-  [1m[35mMessage Load (0.2ms)[0m  SELECT  "messages".* FROM "messages" WHERE "messages"."connection_id" = ?  ORDER BY date LIMIT 100  [["connection_id", 8]]
-  Rendered messages/index.html.erb within layouts/application (2.0ms)
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 7]]
-Completed 200 OK in 58ms (Views: 40.6ms | ActiveRecord: 0.6ms)
-
-
-Started POST "/connections/8/messages" for ::1 at 2015-05-31 15:18:48 -0500
-Processing by MessagesController#create as HTML
-  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7qvmeJnWGYWJeNF4phBN4VCSX6n0HzQoFAf5/6nB2qEmTz7HChNqqkLjdyEtpyop1rjVf/zkksAjUJiAp6Ebcw==", "message"=>"sss", "connection_id"=>"8"}
-  [1m[35mConnection Load (0.2ms)[0m  SELECT  "connections".* FROM "connections" WHERE "connections"."id" = ? LIMIT 1  [["id", 8]]
-  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35mSQL (0.4ms)[0m  INSERT INTO "messages" ("content", "connection_id", "sender_id", "receiver_id", "date") VALUES (?, ?, ?, ?, ?)  [["content", "sss"], ["connection_id", 8], ["sender_id", 7], ["receiver_id", 2], ["date", 1433103528]]
-  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
-Redirected to http://localhost:3000/connections/8/messages
-Completed 302 Found in 12ms (ActiveRecord: 2.1ms)
-
-
-Started GET "/connections/8/messages" for ::1 at 2015-05-31 15:18:48 -0500
-Processing by MessagesController#index as HTML
-  Parameters: {"connection_id"=>"8"}
-  [1m[35mConnection Load (0.1ms)[0m  SELECT  "connections".* FROM "connections" WHERE "connections"."id" = ? LIMIT 1  [["id", 8]]
-  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 7]]
-  [1m[35mMessage Load (0.1ms)[0m  SELECT  "messages".* FROM "messages" WHERE "messages"."connection_id" = ?  ORDER BY date LIMIT 100  [["connection_id", 8]]
-  Rendered messages/index.html.erb within layouts/application (1.2ms)
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 7]]
-Completed 200 OK in 40ms (Views: 37.5ms | ActiveRecord: 0.3ms)
-
-
-Started GET "/logout" for ::1 at 2015-05-31 15:18:50 -0500
-Processing by SessionsController#destroy as HTML
-Redirected to http://localhost:3000/
-Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
-
-
-Started GET "/" for ::1 at 2015-05-31 15:18:50 -0500
-Processing by TweetsController#index as HTML
-Redirected to http://localhost:3000/login
-Filter chain halted as :find_user rendered or redirected
-Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
-
-
-Started GET "/login" for ::1 at 2015-05-31 15:18:50 -0500
-Processing by SessionsController#new as HTML
-  Rendered sessions/new.html.erb within layouts/application (0.5ms)
-Completed 200 OK in 38ms (Views: 37.5ms | ActiveRecord: 0.0ms)
-
-
-Started POST "/sessions" for ::1 at 2015-05-31 15:19:00 -0500
-Processing by SessionsController#create as HTML
-  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bPTUirSXP1jKh+U3JncurXTizKIqo54hoK8Ya3wNiL2kEAw1J1JMdwEcQ26twEll8shGdCJYOMmX+HkUcm1Jbw==", "email"=>"haozhou@uchicago.edu", "password"=>"[FILTERED]", "button"=>""}
-  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "haozhou@uchicago.edu"]]
-Redirected to http://localhost:3000/
-Completed 302 Found in 80ms (ActiveRecord: 0.2ms)
-
-
-Started GET "/" for ::1 at 2015-05-31 15:19:01 -0500
-Processing by TweetsController#index as HTML
-  [1m[36mTweet Load (0.4ms)[0m  [1mSELECT  "tweets".* FROM "tweets"  ORDER BY date desc LIMIT 5 OFFSET 0[0m
-  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tweets"
-  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc[0m  [["tweet_id", 5]]
-  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 7]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 7]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
-  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc  [["tweet_id", 10]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc[0m  [["tweet_id", 2]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
-  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
-  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc  [["tweet_id", 7]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
-  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc[0m  [["tweet_id", 1]]
-  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
-  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "follows" WHERE "follows"."fan_id" = ?  [["fan_id", 2]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "follows" WHERE "follows"."fan_id" = ?[0m  [["fan_id", 2]]
-  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?  [["user_id", 2]]
-  Rendered tweets/index.html.erb within layouts/application (18.5ms)
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
-Completed 200 OK in 52ms (Views: 49.7ms | ActiveRecord: 1.8ms)
-
-
-Started GET "/connections" for ::1 at 2015-05-31 15:19:04 -0500
-Processing by ConnectionsController#index as HTML
-  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-  [1m[36mConnection Load (0.2ms)[0m  [1mSELECT "connections".* FROM "connections" WHERE (user_one_id = 2 OR user_two_id = 2)[0m
-  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 7]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 7]]
-  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
-  Rendered connections/index.html.erb within layouts/application (3.0ms)
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-Completed 200 OK in 40ms (Views: 38.3ms | ActiveRecord: 0.5ms)
-
-
-Started GET "/connections/8/messages" for ::1 at 2015-05-31 15:19:05 -0500
-Processing by MessagesController#index as HTML
-  Parameters: {"connection_id"=>"8"}
-  [1m[36mConnection Load (0.1ms)[0m  [1mSELECT  "connections".* FROM "connections" WHERE "connections"."id" = ? LIMIT 1[0m  [["id", 8]]
-  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT  "messages".* FROM "messages" WHERE "messages"."connection_id" = ?  ORDER BY date LIMIT 100[0m  [["connection_id", 8]]
-  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 7]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 7]]
-  Rendered messages/index.html.erb within layouts/application (2.9ms)
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-Completed 200 OK in 41ms (Views: 38.4ms | ActiveRecord: 0.5ms)
-
-
-Started GET "/" for ::1 at 2015-05-31 15:19:56 -0500
-Processing by TweetsController#index as HTML
-  [1m[36mTweet Load (1.8ms)[0m  [1mSELECT  "tweets".* FROM "tweets"  ORDER BY date desc LIMIT 5 OFFSET 0[0m
-  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tweets"
-  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc[0m  [["tweet_id", 5]]
-  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 7]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 7]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
-  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc  [["tweet_id", 10]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc[0m  [["tweet_id", 2]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
-  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
-  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc  [["tweet_id", 7]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
-  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."tweet_id" = ?  ORDER BY date desc[0m  [["tweet_id", 1]]
-  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
-  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "follows" WHERE "follows"."fan_id" = ?  [["fan_id", 2]]
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "follows" WHERE "follows"."fan_id" = ?[0m  [["fan_id", 2]]
-  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?  [["user_id", 2]]
-  Rendered tweets/index.html.erb within layouts/application (79.1ms)
-  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
-Completed 200 OK in 299ms (Views: 266.1ms | ActiveRecord: 10.9ms)
-
-
-Started GET "/logout" for ::1 at 2015-05-31 15:20:00 -0500
-Processing by SessionsController#destroy as HTML
-Redirected to http://localhost:3000/
-Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
-
-
-Started GET "/" for ::1 at 2015-05-31 15:20:00 -0500
-Processing by TweetsController#index as HTML
-Redirected to http://localhost:3000/login
-Filter chain halted as :find_user rendered or redirected
-Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
-
-
-Started GET "/login" for ::1 at 2015-05-31 15:20:00 -0500
-Processing by SessionsController#new as HTML
-  Rendered sessions/new.html.erb within layouts/application (1.1ms)
-Completed 200 OK in 31ms (Views: 30.6ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/users?utf8=%E2%9C%93&keyword=haozhou" for ::1 at 2015-05-31 15:20:07 -0500
-Processing by UsersController#index as HTML
-  Parameters: {"utf8"=>"✓", "keyword"=>"haozhou"}
-  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE (username LIKE '%haozhou%')
-  [1m[36mFollow Load (0.2ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."fan_id" = ? AND "follows"."star_id" IS NULL LIMIT 1[0m  [["fan_id", 2]]
-  [1m[35mFollow Load (0.1ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" IS NULL LIMIT 1  [["star_id", 2]]
-  [1m[36mConnection Load (0.1ms)[0m  [1mSELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" IS NULL LIMIT 1[0m  [["user_one_id", 2]]
-  [1m[35mConnection Load (0.1ms)[0m  SELECT  "connections".* FROM "connections" WHERE "connections"."user_two_id" = ? AND "connections"."user_one_id" IS NULL LIMIT 1  [["user_two_id", 2]]
-  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35mSQL (0.4ms)[0m  INSERT INTO "connections" ("user_one_id", "date") VALUES (?, ?)  [["user_one_id", 2], ["date", 1433103607]]
-  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
-  Rendered users/index.html.erb within layouts/application (20.8ms)
-Completed 200 OK in 58ms (Views: 54.3ms | ActiveRecord: 2.5ms)
-
-
-Started POST "/users/2/follows" for ::1 at 2015-05-31 15:20:11 -0500
-Processing by FollowsController#create as JS
-  Parameters: {"user_id"=>"2"}
-  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35mSQL (0.5ms)[0m  INSERT INTO "follows" ("star_id") VALUES (?)  [["star_id", 2]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "messages" ("id", "content", "date", "sender_id", "receiver_id", "connection_id") VALUES (?, ?, ?, ?, ?, ?)  [["id", 8], ["content", "My old one got wet and fried a few months ago"], ["date", 1432931529], ["sender_id", 1], ["receiver_id", 3], ["connection_id", 2]]
   [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
-  [1m[35mFollow Load (0.1ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."fan_id" = ? AND "follows"."star_id" IS NULL LIMIT 1  [["fan_id", 2]]
-  [1m[36mFollow Load (0.3ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" IS NULL LIMIT 1[0m  [["star_id", 2]]
-  [1m[35mCACHE (0.0ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" IS NULL LIMIT 1  [["star_id", 2]]
-  [1m[36mConnection Load (0.1ms)[0m  [1mSELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" IS NULL LIMIT 1[0m  [["user_one_id", 2]]
-  Rendered follows/_follow_buttons.html.erb (5.2ms)
-  Rendered follows/new.js.erb (14.2ms)
-Completed 200 OK in 53ms (Views: 20.6ms | ActiveRecord: 2.3ms)
-
-
-Started DELETE "/users/2/follows/149" for ::1 at 2015-05-31 15:20:13 -0500
-Processing by FollowsController#destroy as JS
-  Parameters: {"user_id"=>"2", "id"=>"149"}
-  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
-  [1m[36mFollow Load (0.1ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."id" = ? LIMIT 1[0m  [["id", 149]]
-  [1m[35mSQL (1.6ms)[0m  DELETE FROM "follows" WHERE "follows"."id" = ?  [["id", 149]]
-  [1m[36mFollow Load (0.1ms)[0m  [1mSELECT  "follows".* FROM "follows" WHERE "follows"."fan_id" = ? AND "follows"."star_id" IS NULL LIMIT 1[0m  [["fan_id", 2]]
-  [1m[35mFollow Load (1.1ms)[0m  SELECT  "follows".* FROM "follows" WHERE "follows"."star_id" = ? AND "follows"."fan_id" IS NULL LIMIT 1  [["star_id", 2]]
-  [1m[36mConnection Load (0.3ms)[0m  [1mSELECT  "connections".* FROM "connections" WHERE "connections"."user_one_id" = ? AND "connections"."user_two_id" IS NULL LIMIT 1[0m  [["user_one_id", 2]]
-  Rendered follows/_follow_buttons.html.erb (3.9ms)
-  Rendered follows/destroy.js.erb (6.1ms)
-Completed 200 OK in 16ms (Views: 9.9ms | ActiveRecord: 3.4ms)
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "connections"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "connections" ("id", "user_one_id", "user_two_id", "date", "last_message") VALUES (?, ?, ?, ?, ?)  [["id", 1], ["user_one_id", 3], ["user_two_id", 2], ["date", 1432931529], ["last_message", "My old one got wet and fried a few months ago"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "connections" ("id", "user_one_id", "user_two_id", "date", "last_message") VALUES (?, ?, ?, ?, ?)[0m  [["id", 2], ["user_one_id", 1], ["user_two_id", 3], ["date", 1432931549], ["last_message", "My old one got wet and fried a few months ago"]]
+  [1m[35m (0.9ms)[0m  commit transaction

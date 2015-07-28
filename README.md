@@ -6,7 +6,7 @@ Login :   Email:    yanzhewu@uchicago.edu
           Password: yanzhewu  
        or Sign up with your own preferences  
 
-Completed Requirements:  
+###Completed Requirements:  
 
 5 database-backed models, which must consist of at least 4 domain models plus one User model  
 A least 1 many-to-many model association  

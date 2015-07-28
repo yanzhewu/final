@@ -1,9 +1,23 @@
-Final Project 
+My web app simillar to Twitter
+===========================================================
 
 public url: 52.8.114.250:3000
 Login :   Email:    yanzhewu@uchicago.edu
           Password: yanzhewu
        or Sign up with your own preferences
+
+Completed Requirements:
+
+5 database-backed models, which must consist of at least 4 domain models plus one User model
+A least 1 many-to-many model association
+Proper association methods 
+Model validations as necessary
+A proper database seeds file (.rb or .sqlite3)
+One complete, RESTful database-backed resource
+Common site navigation throughout
+Secure password-based signup/sign-in/sign out functionality
+Deployed to public url
+
 
 Here are the minimum requirements with points indicated.
 26 points total 

@@ -1,7 +1,7 @@
 My web app simillar to Twitter
 ===========================================================
 
-public url: 52.8.114.250:3000  
+public url: 52.8.212.120:3000  
 Login :   Email:    yanzhewu@uchicago.edu  
           Password: yanzhewu  
        or Sign up with your own preferences  

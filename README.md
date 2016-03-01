@@ -1,11 +1,6 @@
 My web app simillar to Twitter
 ===========================================================
 
-public url: 52.8.212.120:3000  
-Login :   Email:    yanzhewu@uchicago.edu  
-          Password: yanzhewu  
-       or Sign up with your own preferences  
-
 ###Completed Requirements:  
 
 1. 5 database-backed models, which must consist of at least 4 domain models plus one User model  
